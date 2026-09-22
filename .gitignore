@@ -1,0 +1,4 @@
+# 大体积视频不进 Git（GitHub 单文件限 100MB，且重复存储无意义）；缩略图保留
+videos/
+*.bak
+.DS_Store

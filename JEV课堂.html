@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JEV 课堂 · 13 节课学会裁判</title>
+<style>
+:root{--bg:#0b0b10;--card:#16161f;--line:#262633;--txt:#e8e4da;--dim:#9a94a8;--gold:#d4a94e;--gold2:#f0c96e;--green:#5fb878;--red:#e0604e;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,"PingFang SC",sans-serif;line-height:1.7;background:radial-gradient(ellipse 90% 55% at 50% -15%,rgba(46,36,74,.55) 0%,transparent 70%),var(--bg)}
+.wrap{max-width:1150px;margin:0 auto;padding:56px 22px 90px}
+h1{font-family:Georgia,"Songti SC",serif;font-size:40px;letter-spacing:2px;text-align:center;background:linear-gradient(135deg,#f5e3b3,#d4a94e 60%,#a37c2e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{text-align:center;color:var(--dim);font-size:14px;margin-top:10px}
+.howto{background:linear-gradient(180deg,#171322,#12121a);border:1px solid #33284d;border-radius:16px;padding:26px 30px;margin:38px 0}
+.howto b{color:var(--gold2)}
+.howto p{color:#cfc9bd;font-size:14.5px;margin:8px 0}
+.progress{position:sticky;top:0;z-index:8;background:rgba(11,11,16,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:12px 0;margin:26px 0}
+.p-in{display:flex;align-items:center;gap:14px}
+.p-bar{flex:1;height:10px;background:#232233;border-radius:5px;overflow:hidden}
+.p-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#5fb878,#d4a94e);transition:width .4s}
+.p-text{color:var(--dim);font-size:13px;white-space:nowrap}
+.lesson{border:1px solid var(--line);border-radius:16px;background:var(--card);margin-bottom:18px;overflow:hidden}
+.l-head{display:flex;align-items:center;gap:14px;padding:20px 24px;cursor:pointer;user-select:none}
+.l-no{font-family:Georgia,serif;color:var(--gold);font-size:15px;border:1px solid #3a3050;border-radius:8px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.l-head h2{font-family:Georgia,"Songti SC",serif;font-size:21px;letter-spacing:1px}
+.l-stat{margin-left:auto;color:var(--dim);font-size:12.5px}
+.l-arrow{color:var(--gold);transition:transform .2s}
+.l-arrow.closed{transform:rotate(-90deg)}
+.l-desc{padding:0 24px 16px;color:var(--dim);font-size:13.5px;border-bottom:1px dashed #232233}
+.l-body{padding:20px 24px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.pick{background:#0e0d16;border:1px solid var(--line);border-radius:12px;padding:14px;position:relative}
+.pick img{width:100%;border-radius:8px;display:block;aspect-ratio:16/9;object-fit:cover}
+.pick b{display:block;margin-top:10px;font-size:14.5px}
+.pick small{color:var(--dim)}
+.pick p{color:#bdb6ab;font-size:13px;margin-top:6px}
+a.poster{position:relative;display:block}
+.play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;background:rgba(0,0,0,.25);opacity:0;transition:.2s;border-radius:8px}
+.play.big{font-size:15px;background:rgba(0,0,0,.45);opacity:1;font-weight:600;letter-spacing:1px}
+a:hover .play{opacity:1}
+details.more summary{cursor:pointer;color:var(--dim);font-size:13.5px;padding:10px 2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:14px;margin-top:12px}
+.cell{background:#0e0d16;border:1px solid var(--line);border-radius:10px;overflow:hidden;position:relative;cursor:pointer;transition:border-color .2s}
+.cell:hover{border-color:#4a3f66}
+.cell img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.cell .meta{display:block;padding:10px 12px;text-decoration:none;color:var(--txt)}
+.cell b{font-size:13px}
+.cell small{color:var(--dim);display:block;font-size:11.5px;margin-top:2px}
+.cell p{color:#b5afa3;font-size:12px;margin-top:6px;line-height:1.5}
+.done{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;background:rgba(0,0,0,.5);border:1px solid #4a3f66;color:#4a3f66;font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
+.done.on{background:var(--green);border-color:var(--green);color:#0b0b10}
+footer{text-align:center;color:var(--dim);font-size:12.5px;margin-top:44px;padding-top:26px;border-top:1px solid var(--line)}
+@media(max-width:720px){.duo{grid-template-columns:1fr}h1{font-size:28px}}
+</style></head><body><div class="wrap">
+<h1>JEV 课堂</h1>
+<p class="sub">13 节课，一节课一类用法 · 每条案例本地视频+缩略图 · 点开即看，看完点 ✓ 记进度</p>
+<div class="howto">
+<p><b>怎么用这个课堂：</b>从上往下，一节课一节课来。每节课先看「▶ 先看这条」视频（本地视频直接放，不用登录），再扫一眼「▶ 再看这条」，然后去「<b>Jev 裁判台</b>」网页把那一招亲手玩一遍。</p>
+<p><b>练手作业（每节课后做）：</b>第 1 课→在 AI 对话里喊「让裁判看看 X」；第 2 课→丢给 AI 两个模型让它用裁判选；第 3 课→让 Codex 也接上裁判试一次；第 4 课→拿裁判台判「周末去哪玩」；第 5 课→让裁判给你的某个想法打分；第 6 课→让裁判判 3 条资讯好不好；第 7 课→拿裁判台试「这 3 个标题哪个好」；第 8 课→让 AI 批量判 5 件事。</p>
+</div>
+<div class="progress"><div class="p-in"><span class="p-text" id="ptext">进度 0 / 202</span><div class="p-bar"><i id="pbar"></i></div><span class="p-text">顶部进度条 · 点卡片右上角 ✓ 记「已学」</span></div></div>
+<section class="lesson" id="L-intro">
+<header class="l-head" onclick="toggle('intro')">
+  <span class="l-no">01</span>
+  <h2>📣 一句话看懂 Jev</h2>
+  <span class="l-stat">34 案例 · 3708.5万 浏览</span>
+  <span class="l-arrow" id="ar-intro">▾</span>
+</header>
+<p class="l-desc">官宣、科普、45 秒讲清它是啥——先搞清它到底是个啥：看创始人自己怎么定义它，再看两条 45 秒科普。</p>
+<div class="l-body" id="bd-intro">
+  <div class="duo">
+    <div class="pick"><a href="videos/108.mp4" target="_blank"><img src="thumbs/108.jpg"><span class="play big">▶ 先看这条</span></a><b>Diogo Almeida</b><small>@CompleteSkeptic · 3460.4万人看过</small><p>在共同发明ChatGPT后，我不断问自己：为什么超人聊天模型没有导致AGI？ 过去两年，我一直在秘密开发一种新的模型训练方法（RLCD），以及我们今天发布的一种新型前沿人工智能模型：Jev ·快20- 200倍 ·便宜4</p></div>
+    <div class="pick"><a href="videos/156.mp4" target="_blank"><img src="thumbs/156.jpg"><span class="play big">▶ 再看这条</span></a><b>Matija Sosic</b><small>@MatijaSosic · 140.9万人看过</small><p>这是Jev上的45秒TL;DR。 我发现核心想法非常简单，但视频让它真的很难理解。 希望您发现这对您有帮助。https://t.co/KtSKlEMVL3</p></div>
+  </div>
+  <details class="more"><summary>本类还有 32 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(19)" id="cell19">
+<a class="poster" href="videos/019.mp4" target="_blank"><img src="thumbs/019.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2099940549973443047" target="_blank" rel="noopener">
+  <b>GeniusThinking</b><small>@GeniusGTX · 7000人看过</small>
+  <p>贾维斯终于来了吗？ TypSafe刚刚推出了Jev，这是一个结构化决策API，可以路由模型、对搜索结果进行排名并检查其他人工智能系统，而无需聊天机器人参与循环。 想象一下一个真正有效的…</p>
+</a>
+<span class="done" id="done19" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(28)" id="cell28">
+<a class="poster" href="videos/028.mp4" target="_blank"><img src="thumbs/028.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100951738606035176" target="_blank" rel="noopener">
+  <b>Raihan Khan</b><small>@raihankhan_rk · 3300人看过</small>
+  <p>我已经通过@typesafeai访问Jev大约30个小时了，我无法停止思考它可以在数百万个地方使用。🤯 与此同时，查看我制作的这个有趣的蛇游戏，其中2个Jev互相竞争以夺取奖杯🏆 在这…</p>
+</a>
+<span class="done" id="done28" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(29)" id="cell29">
+<a class="poster" href="videos/029.mp4" target="_blank"><img src="thumbs/029.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100985265346978224" target="_blank" rel="noopener">
+  <b>EDteam</b><small>@edteamlat · 1300人看过</small>
+  <p>Jev 是 ChatGPT 的创建者之一 Diogo Almeida 创建的新 AI ， 承诺比目前的模型快 200 倍 ， 便宜 400 倍。 与法学硕士不同的是 ， 它不会逐字逐句…</p>
+</a>
+<span class="done" id="done29" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(38)" id="cell38">
+<a class="poster" href="videos/038.mp4" target="_blank"><img src="thumbs/038.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100868719471722652" target="_blank" rel="noopener">
+  <b>Melvin Vivas</b><small>@melvindvivas · 729人看过</small>
+  <p>我为Jev想到的9个用例 希望对你有用</p>
+</a>
+<span class="done" id="done38" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(39)" id="cell39">
+<a class="poster" href="videos/039.mp4" target="_blank"><img src="thumbs/039.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100899185948233891" target="_blank" rel="noopener">
+  <b>Aria</b><small>@Entelic_Aria · 3100人看过</small>
+  <p>每个模特都想要这份工作。 速度最快的人说：“我明白了。” 推理模型要求更多上下文。 安全模型说：“绝对不。” Jev介入并将每个任务发送到其所属的地方。 Aria上的Jev决策每100…</p>
+</a>
+<span class="done" id="done39" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(40)" id="cell40">
+<a class="poster" href="videos/040.mp4" target="_blank"><img src="thumbs/040.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101007708044574906" target="_blank" rel="noopener">
+  <b>Aaron Levie</b><small>@levie · 1.7万人看过</small>
+  <p>Jev将非常有助于代理在工作流程、数据分类、判断调用和企业中数百个其他用例中做出瞬间决策。 以下是Box和Jev的快速演示，以实现这一目标。演示从Box中提取事件报告，询问其是否面向客…</p>
+</a>
+<span class="done" id="done40" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(41)" id="cell41">
+<a class="poster" href="videos/041.mp4" target="_blank"><img src="thumbs/041.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100939738479730837" target="_blank" rel="noopener">
+  <b>Thiago Brezinski</b><small>@thiagobrez · 1200人看过</small>
+  <p>在@AgentConf https://t.co/y3UpKP2e4z上直播@typesafeai Jev演示</p>
+</a>
+<span class="done" id="done41" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(44)" id="cell44">
+<a class="poster" href="videos/044.mp4" target="_blank"><img src="thumbs/044.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100012553065644103" target="_blank" rel="noopener">
+  <b>Yuntian Deng</b><small>@yuntiandeng · 1.3万人看过</small>
+  <p>我越来越认为未来的软件将将控制流代码与用于“模糊”判断的小型神经程序相结合。 这就是我一直在用ProgramAsWeights探索的内容，它回答了这些神经程序来自哪里的问题：它们是从英…</p>
+</a>
+<span class="done" id="done44" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(52)" id="cell52">
+<a class="poster" href="videos/052.mp4" target="_blank"><img src="thumbs/052.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100981133508817336" target="_blank" rel="noopener">
+  <b>Codez</b><small>@0xCodez · 2500人看过</small>
+  <p>Jev创始人Diogo Almeida（前OpenAI）： “下一个时代不是克劳德·密码时代。Claude Code仍然是援助时代的一部分- Jev是下一步 Jev速度快200，便宜4…</p>
+</a>
+<span class="done" id="done52" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(61)" id="cell61">
+<a class="poster" href="videos/061.mp4" target="_blank"><img src="thumbs/061.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100717739556167722" target="_blank" rel="noopener">
+  <b>Ansh Nanda</b><small>@anshnanda · 1.8万人看过</small>
+  <p>到目前为止，您可能已经在您的时间轴上看到了Jev。 是的，这是一个速度快且便宜的型号。 但它与GPT-6 Astra、Fable 5.1和Deepseek v4.1 Flash相比如何…</p>
+</a>
+<span class="done" id="done61" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(75)" id="cell75">
+<a class="poster" href="videos/075.mp4" target="_blank"><img src="thumbs/075.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100715237267660873" target="_blank" rel="noopener">
+  <b>Moritz Kremb</b><small>@moritzkremb · 11.0万人看过</small>
+  <p>完整的Jev 它是什么、如何用它构建以及它可以解锁哪些新应用程序 → 0：00简介 → 0：34杰夫解释道 -4：06 API设置 -5：59演示1：语音控制浏览器 → 11：33演示…</p>
+</a>
+<span class="done" id="done75" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(84)" id="cell84">
+<a class="poster" href="videos/084.mp4" target="_blank"><img src="thumbs/084.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100706455523561909" target="_blank" rel="noopener">
+  <b>TypeSafe AI</b><small>@typesafeai · 4.8万人看过</small>
+  <p>在我们的发布视频幕后.幕僚长@justKDeng让我们的首席执行官@CompleteSkeptic保持正轨https://t.co/81HHtsj4eK</p>
+</a>
+<span class="done" id="done84" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(87)" id="cell87">
+<a class="poster" href="videos/087.mp4" target="_blank"><img src="thumbs/087.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100481938016669917" target="_blank" rel="noopener">
+  <b>trou</b><small>@_trou3 · 11.6万人看过</small>
+  <p>对于那些仍然不明白@typesafeai的Jev能做什么的人来说，这里是一个例子。 Jev可以读取数十个结构化交易信号，然后做出明智的决策。 是时候让您的系统真正活跃起来了。 多么美好…</p>
+</a>
+<span class="done" id="done87" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(88)" id="cell88">
+<a class="poster" href="videos/088.mp4" target="_blank"><img src="thumbs/088.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100670497818313175" target="_blank" rel="noopener">
+  <b>Nick Vasilescu</b><small>@nickvasiles · 1.3万人看过</small>
+  <p>Jev是ChatGPT联合发明者的一款新型号，可以实时使用计算机工具 目前它正在Orgo上的云中自己的计算机上玩Minecraft 这就是只有一辆Jev的样子，但想象一下： 一千个怎么…</p>
+</a>
+<span class="done" id="done88" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(92)" id="cell92">
+<a class="poster" href="videos/092.mp4" target="_blank"><img src="thumbs/092.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100098315144602056" target="_blank" rel="noopener">
+  <b>cocktail peanut</b><small>@cocktailpeanut · 16.5万人看过</small>
+  <p>硅谷预测@typesafeai https://t.co/v8xXPluYF3</p>
+</a>
+<span class="done" id="done92" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(102)" id="cell102">
+<a class="poster" href="videos/102.mp4" target="_blank"><img src="thumbs/102.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100304967408234981" target="_blank" rel="noopener">
+  <b>AiMind</b><small>@AIMind_Ai · 2900人看过</small>
+  <p>ChatGPT的联合发明人Diogo Almeida表示，他的新型号Jev比AI快193倍。 Typesafe的Jev从不写文本。上下文输入，输入决定。是或否，而不是一篇论文。 您正在…</p>
+</a>
+<span class="done" id="done102" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(108)" id="cell108">
+<a class="poster" href="videos/108.mp4" target="_blank"><img src="thumbs/108.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2099925682726002904" target="_blank" rel="noopener">
+  <b>Diogo Almeida</b><small>@CompleteSkeptic · 3460.4万人看过</small>
+  <p>在共同发明ChatGPT后，我不断问自己：为什么超人聊天模型没有导致AGI？ 过去两年，我一直在秘密开发一种新的模型训练方法（RLCD），以及我们今天发布的一种新型前沿人工智能模型：J…</p>
+</a>
+<span class="done" id="done108" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(111)" id="cell111">
+<a class="poster" href="videos/111.mp4" target="_blank"><img src="thumbs/111.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100368024649769384" target="_blank" rel="noopener">
+  <b>Daniel White</b><small>@dwhitedesign · 3500人看过</small>
+  <p>整个晚上都在理解这一点，所以Jev用34秒的时间讲述了这一点。 非常兴奋能够和@typesafeai一起建造一些令人难以置信的东西，这真是一个活着的时刻.. https://t.co/…</p>
+</a>
+<span class="done" id="done111" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(113)" id="cell113">
+<a class="poster" href="videos/113.mp4" target="_blank"><img src="thumbs/113.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101009970045071824" target="_blank" rel="noopener">
+  <b>Cloudflare</b><small>@Cloudflare · 1.1万人看过</small>
+  <p>收件箱演讲者公告：@CompleteSkeptic首席执行官，@typesafeai Cloudflare Connect 立即注册：https://t.co/YCwgnPlLDj h…</p>
+</a>
+<span class="done" id="done113" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(118)" id="cell118">
+<a class="poster" href="videos/118.mp4" target="_blank"><img src="thumbs/118.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100835307016905109" target="_blank" rel="noopener">
+  <b>梭哈.AI</b><small>@SUOHA_AI · 4.5万人看过</small>
+  <p>很多人没看懂爆火的JEV是什么？ 所以我做了一个 50 秒的演示视频，带大家把海外刷屏的 JEV 以及它背后的底层架构看透👇（见下方视频） JEV 是前 OpenAI、参与 ChatG…</p>
+</a>
+<span class="done" id="done118" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(120)" id="cell120">
+<a class="poster" href="videos/120.mp4" target="_blank"><img src="thumbs/120.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100979515388473828" target="_blank" rel="noopener">
+  <b>Sydney Runkle</b><small>@sydneyrunkle · 1.6万人看过</small>
+  <p>@typesafeai的jev不会生成文本，而是生成结构化输出 这使得它非常适合模型路由、工具选择/搜索和多种形式的护栏等分类任务！ 与执行相同任务的LLM相比，它的速度快且便宜得离谱…</p>
+</a>
+<span class="done" id="done120" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(121)" id="cell121">
+<a class="poster" href="videos/121.mp4" target="_blank"><img src="thumbs/121.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100885597267153087" target="_blank" rel="noopener">
+  <b>Alex Stone</b><small>@a1exstone · 2000人看过</small>
+  <p>Typesafe发布了一个不生成文本的模型，它打破了代理循环的成本底线 jev是他们所谓的系统一模型。你向它发送一个状态和一组问题，它会返回带有概率的类型化答案。没有令牌，没有采样，没…</p>
+</a>
+<span class="done" id="done121" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(124)" id="cell124">
+<a class="poster" href="videos/124.mp4" target="_blank"><img src="thumbs/124.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100909353163174043" target="_blank" rel="noopener">
+  <b>Remek Kinas</b><small>@KinasRemek · 1.1万人看过</small>
+  <p>在我看来，像JEV这样的模型将会带来巨大的改变。目前的LLM模型模拟的是系统2的运作方式。对我来说，JEV的实现是过去几个月里出现的最新的概念之一。 虽然看起来没什么特别之处（只是一个…</p>
+</a>
+<span class="done" id="done124" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(133)" id="cell133">
+<a class="poster" href="videos/133.mp4" target="_blank"><img src="thumbs/133.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2099932457089056862" target="_blank" rel="noopener">
+  <b>Veee</b><small>@vikktorrrre · 3600人看过</small>
+  <p>我们花了3年时间学习如何写提示 @typesafeai的Jev将大提示分解为您可以围绕的较小决策 你不是一个巨大的提示，希望模型一切顺利，而是问一些更小的问题： - 这很紧急吗？ - …</p>
+</a>
+<span class="done" id="done133" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(136)" id="cell136">
+<a class="poster" href="videos/136.mp4" target="_blank"><img src="thumbs/136.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100789410686259217" target="_blank" rel="noopener">
+  <b>Apoorv Goyal</b><small>@apooorved · 152人看过</small>
+  <p>认识一下杰夫 （Typesafe的第一个“System One”模型） 谁知道人工智能的下一步将是让LLM过时…… 足够快的人工智能可用于实时应用 （包括实时玩《毁灭战士》） 我在哪里…</p>
+</a>
+<span class="done" id="done136" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(137)" id="cell137">
+<a class="poster" href="videos/137.mp4" target="_blank"><img src="thumbs/137.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101006202184634616" target="_blank" rel="noopener">
+  <b>Prakshal Jain</b><small>@prakshaljain_ · 324人看过</small>
+  <p>Jev by @typesafeai将您的DeliverMac变成了人工智能代理. 这对你意味着什么？ - Jev是ChatGPT共同发明者的一款新型号，可以实时操作计算机工具。 - …</p>
+</a>
+<span class="done" id="done137" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(148)" id="cell148">
+<a class="poster" href="videos/148.mp4" target="_blank"><img src="thumbs/148.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100230381588951209" target="_blank" rel="noopener">
+  <b>Justin Schroeder</b><small>@jpschroeder · 32.2万人看过</small>
+  <p>硅谷十年前就预言了Jev。https://t.co/ZfSjPYWsTn</p>
+</a>
+<span class="done" id="done148" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(152)" id="cell152">
+<a class="poster" href="videos/152.mp4" target="_blank"><img src="thumbs/152.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100587421792661831" target="_blank" rel="noopener">
+  <b>Framer</b><small>@framer · 7900人看过</small>
+  <p>建设变得更快了。味道并不是可以选择的。当该网站在第一天就必须看起来像一家严肃的公司时，像@typesafeai这样的前沿团队仍然会去Framer。https://t.co/cHYyiB…</p>
+</a>
+<span class="done" id="done152" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(156)" id="cell156">
+<a class="poster" href="videos/156.mp4" target="_blank"><img src="thumbs/156.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100190746389135772" target="_blank" rel="noopener">
+  <b>Matija Sosic</b><small>@MatijaSosic · 140.9万人看过</small>
+  <p>这是Jev上的45秒TL;DR。 我发现核心想法非常简单，但视频让它真的很难理解。 希望您发现这对您有帮助。https://t.co/KtSKlEMVL3</p>
+</a>
+<span class="done" id="done156" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(166)" id="cell166">
+<a class="poster" href="videos/166.mp4" target="_blank"><img src="thumbs/166.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2099946321495068746" target="_blank" rel="noopener">
+  <b>Rohan Paul</b><small>@rohanpaul_ai · 1.7万人看过</small>
+  <p>对于开发人员来说，又一次精彩的发布：它比LLM快20- 200倍，因为它完全跳过了逐代币生成。 TypSafe AI刚刚推出Jev， &gt; 20- 200倍快 &gt;40- 400倍便宜（含…</p>
+</a>
+<span class="done" id="done166" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(172)" id="cell172">
+<a class="poster" href="videos/172.mp4" target="_blank"><img src="thumbs/172.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100322626204004793" target="_blank" rel="noopener">
+  <b>Raghav</b><small>@RaghavPunnam · 6.1万人看过</small>
+  <p>对于那些试图了解Jev和LLM之间区别的人+如何使用它https://t.co/55o5WEq3Va</p>
+</a>
+<span class="done" id="done172" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(184)" id="cell184">
+<a class="poster" href="videos/184.mp4" target="_blank"><img src="thumbs/184.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100946657965912253" target="_blank" rel="noopener">
+  <b>Ackerman</b><small>@Yarilo7brigada · 2600人看过</small>
+  <p>jev是一款非常酷的产品 看到一篇关于jev的帖子并决定查看一下 这东西简直是金子，无论谁建造它，都是天才 吉普车是未来 在40秒内扫描了700多个现场广告，只花了我4美分。 如果你从…</p>
+</a>
+<span class="done" id="done184" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(190)" id="cell190">
+<a class="poster" href="videos/190.mp4" target="_blank"><img src="thumbs/190.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100570516612382787" target="_blank" rel="noopener">
+  <b>Vinny</b><small>@hot_town · 4.7万人看过</small>
+  <p>杰夫在这里。 - 与LLM有什么不同？ - 引擎盖下是怎么工作的 - 有什么现实生活中的例子吗？ - 我应该什么时候使用它？ 我在下面回答所有问题：https://t.co/HLfPV…</p>
+</a>
+<span class="done" id="done190" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(202)" id="cell202">
+<a class="poster" href="videos/202.mp4" target="_blank"><img src="thumbs/202.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101023449636311454" target="_blank" rel="noopener">
+  <b>Bolha Dev</b><small>@BolhaDevs · 370人看过</small>
+  <p>o modelo jev（paradoxo de jevons）com RLCD（用于校准决策的强化学习）da typesafe ai https://t.co/aGwtQkbJyj</p>
+</a>
+<span class="done" id="done202" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section><section class="lesson" id="L-router">
+<header class="l-head" onclick="toggle('router')">
+  <span class="l-no">02</span>
+  <h2>🧭 给 Agent 当调度员</h2>
+  <span class="l-stat">20 案例 · 50.9万 浏览</span>
+  <span class="l-arrow" id="ar-router">▾</span>
+</header>
+<p class="l-desc">判断任务该派给谁：路由模型、挑技能、分工——它最常见的活：当调度员。看 Slack agent 怎么被它提速一倍，再看 90 个 skill 怎么自动选对。</p>
+<div class="l-body" id="bd-router">
+  <div class="duo">
+    <div class="pick"><a href="videos/199.mp4" target="_blank"><img src="thumbs/199.jpg"><span class="play big">▶ 先看这条</span></a><b>John Yeo</b><small>@johnyeo_ · 4900人看过</small><p>Jev让我们的Slack代理速度提高了2倍️ 我们的代理可能会相当慢，因为它需要阅读技能并弄清楚要调用哪些工具。 我们使用@typesafeai的新模型来加速这一过程，首先向它传递提示，并在将其交给代理之前对要使用的最佳</p></div>
+    <div class="pick"><a href="videos/093.mp4" target="_blank"><img src="thumbs/093.jpg"><span class="play big">▶ 再看这条</span></a><b>Lomesh Dutta</b><small>@lomeshdutta · 1800人看过</small><p>刚刚黑了一个有趣的小项目- Skill Router（开放源代码）使用Claude和Jev @typesafeai 为什么？我安装了约90个Claude Code技能，并使用了大约5个技能。其余的都很好，我只是忘记了它们</p></div>
+  </div>
+  <details class="more"><summary>本类还有 18 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(20)" id="cell20">
+<a class="poster" href="videos/020.mp4" target="_blank"><img src="thumbs/020.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100457614073327754" target="_blank" rel="noopener">
+  <b>Cris Lenta</b><small>@crislenta · 5.8万人看过</small>
+  <p>杰夫实际上疯了。 我们对它进行了基准测试，结果彻底改变了我们的游戏： &gt; 500名实时代理 &gt;并行运行 &gt;在3D环境中 初步结果很疯狂： 平均延迟&gt; 500 ms &gt; 35个API调用…</p>
+</a>
+<span class="done" id="done20" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(22)" id="cell22">
+<a class="poster" href="videos/022.mp4" target="_blank"><img src="thumbs/022.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100454070536351824" target="_blank" rel="noopener">
+  <b>Duncan</b><small>@ephraimduncan · 10.9万人看过</small>
+  <p>@typesafeai用Jev构建了一个模型路由器。 Jev决定哪种型号最适合您的请求，然后请求将发送给该型号。https://t.co/HHlmjOE66u</p>
+</a>
+<span class="done" id="done22" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(45)" id="cell45">
+<a class="poster" href="videos/045.mp4" target="_blank"><img src="thumbs/045.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100381962162843779" target="_blank" rel="noopener">
+  <b>Lahfir</b><small>@mdlahfir · 4.3万人看过</small>
+  <p>Jev解决了委托问题https://t.co/1TznArCaSY</p>
+</a>
+<span class="done" id="done45" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(47)" id="cell47">
+<a class="poster" href="videos/047.mp4" target="_blank"><img src="thumbs/047.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100994779291259187" target="_blank" rel="noopener">
+  <b>Sawyer Hood</b><small>@sawyerhood · 4600人看过</small>
+  <p>感谢@typesafeai jev，我不再在提示框上填写所有这些字段。 它为我选择代理/型号/计算机/文件夹。 - 对于重大重写，它使用了Fable + Claude Code。 - …</p>
+</a>
+<span class="done" id="done47" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(49)" id="cell49">
+<a class="poster" href="videos/049.mp4" target="_blank"><img src="thumbs/049.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100615772053877164" target="_blank" rel="noopener">
+  <b>Yoshiki Miura</b><small>@miiura · 3.5万人看过</small>
+  <p>无需等待输入即可调用函数。仅在需要时回答。 @typesafeai Jev在您输入时理解意图和参数，然后在一切就绪后提前执行。https://t.co/n4m9lGGf8S</p>
+</a>
+<span class="done" id="done49" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(83)" id="cell83">
+<a class="poster" href="videos/083.mp4" target="_blank"><img src="thumbs/083.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100410071192682885" target="_blank" rel="noopener">
+  <b>Pontus Karlsson</b><small>@coolastekatten · 2.7万人看过</small>
+  <p>好吧@typesafeai熟了 Jev确实是构建LL M的下一个时代 今晚将此添加到Scappa https://t.co/YeYnj5pc7l</p>
+</a>
+<span class="done" id="done83" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(86)" id="cell86">
+<a class="poster" href="videos/086.mp4" target="_blank"><img src="thumbs/086.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100775367959081235" target="_blank" rel="noopener">
+  <b>Cyclotruc</b><small>@romdot2 · 5200人看过</small>
+  <p>没有替补的发布-替补 @typesafeai jev几乎立即完成路由 https://t.co/pTQIUtVBrI下方的演示链接</p>
+</a>
+<span class="done" id="done86" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(89)" id="cell89">
+<a class="poster" href="videos/089.mp4" target="_blank"><img src="thumbs/089.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100986774742765991" target="_blank" rel="noopener">
+  <b>Pratim Bhosale</b><small>@BhosalePratim · 4700人看过</small>
+  <p>今天玩了一下@typesafeai Jev，主要是为了了解它对工具调用的作用。 我没有让法学硕士决定该做什么，而是用Jev代替了这部分。 我的了解是，我们将能够让代理在用户完成句子之前…</p>
+</a>
+<span class="done" id="done89" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(91)" id="cell91">
+<a class="poster" href="videos/091.mp4" target="_blank"><img src="thumbs/091.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100670692811284602" target="_blank" rel="noopener">
+  <b>Zhe</b><small>@iamzhe · 3300人看过</small>
+  <p>今天https://t.co/xXR4JLt377的小更新： 1.迷你路由器/融合已上线。它通过@typesafeai对Jev的每个请求进行分类，然后路由到与任务类型和复杂性相匹配的精…</p>
+</a>
+<span class="done" id="done91" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(93)" id="cell93">
+<a class="poster" href="videos/093.mp4" target="_blank"><img src="thumbs/093.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100833655518367871" target="_blank" rel="noopener">
+  <b>Lomesh Dutta</b><small>@lomeshdutta · 1800人看过</small>
+  <p>刚刚黑了一个有趣的小项目- Skill Router（开放源代码）使用Claude和Jev @typesafeai 为什么？我安装了约90个Claude Code技能，并使用了大约5个…</p>
+</a>
+<span class="done" id="done93" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(100)" id="cell100">
+<a class="poster" href="videos/100.mp4" target="_blank"><img src="thumbs/100.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100852540900520097" target="_blank" rel="noopener">
+  <b>Ashutosh Mathore</b><small>@ashutoshftw · 667人看过</small>
+  <p>Jev解锁了一种阻止AI代理旋转的新方法。 代理并不总是重复相同的操作。有时候，他们会基于同样的错误假设尝试不同的事情。 我围绕这个建立了一个语义断路器。 在一次卡住的运行中： 12次…</p>
+</a>
+<span class="done" id="done100" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(112)" id="cell112">
+<a class="poster" href="videos/112.mp4" target="_blank"><img src="thumbs/112.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100566009312940457" target="_blank" rel="noopener">
+  <b>Moritz Kremb</b><small>@moritzkremb · 3.1万人看过</small>
+  <p>这很酷。我使用Jev来改进我的自定义内存系统。 结果： - 使用的代币减少了94% -2-3倍更快的内存检索 这只是一个快速测试，但我相信它开辟了很多新的机会。https://t.co…</p>
+</a>
+<span class="done" id="done112" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(125)" id="cell125">
+<a class="poster" href="videos/125.mp4" target="_blank"><img src="thumbs/125.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101022473248727177" target="_blank" rel="noopener">
+  <b>Higgsfield AI 🧩</b><small>@higgsfield_ai · 5200人看过</small>
+  <p>我们找到了Jev的完美用例：自动路由GenAI模型。 想法：Jev为您的任务选择最具成本效益的型号，平衡速度和质量。 所有世代都使用Higgsfield API制作。https://t…</p>
+</a>
+<span class="done" id="done125" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(164)" id="cell164">
+<a class="poster" href="videos/164.mp4" target="_blank"><img src="thumbs/164.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100314182201802811" target="_blank" rel="noopener">
+  <b>Lahfir</b><small>@mdlahfir · 12.5万人看过</small>
+  <p>Jev解决了本地线束/模型布线 我使用Claude Code、Codex和Opencode的组合作为我的本地代理堆栈，并且始终在系统提示/规则中强制执行到其他安全带的路由 借助Clau…</p>
+</a>
+<span class="done" id="done164" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(173)" id="cell173">
+<a class="poster" href="videos/173.mp4" target="_blank"><img src="thumbs/173.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100964845952671816" target="_blank" rel="noopener">
+  <b>Casey Lee Race</b><small>@King_of_Calera · 33人看过</small>
+  <p>是的，但Jev能进行多特工群吗？ 企业解决方案可以在客户刷新浏览器之前自行修复现场制作？ (Demo人类放慢速度）https://t.co/Ky7xNqziss</p>
+</a>
+<span class="done" id="done173" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(180)" id="cell180">
+<a class="poster" href="videos/180.mp4" target="_blank"><img src="thumbs/180.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100399951872205224" target="_blank" rel="noopener">
+  <b>Shane</b><small>@digitalshane_ · 2.6万人看过</small>
+  <p>我可以接触Jev了！ 它可以根据网站访问者需要帮助的内容将他们路由到他们需要的页面！https://t.co/AydblKM9Y0</p>
+</a>
+<span class="done" id="done180" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(183)" id="cell183">
+<a class="poster" href="videos/183.mp4" target="_blank"><img src="thumbs/183.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100592786516951490" target="_blank" rel="noopener">
+  <b>Niels Rogge</b><small>@NielsRogge · 1.5万人看过</small>
+  <p>介绍带有Code的论文LCP服务器！ 为了庆祝它的发布，我请Claude Code通过@typesafeai使用“search_papers”工具研究Jev的架构。 这是它的结果： “…</p>
+</a>
+<span class="done" id="done183" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(185)" id="cell185">
+<a class="poster" href="videos/185.mp4" target="_blank"><img src="thumbs/185.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101024623370567913" target="_blank" rel="noopener">
+  <b>Higgsfield AI 🧩</b><small>@higgsfield_ai · 3800人看过</small>
+  <p>Jev + Higgsfield =已解决genAI模型的自动路由问题。 在此演示中，@typesafeai的Jev评估提示并挑选最适合在Higgsfield API上生成视频和图像的…</p>
+</a>
+<span class="done" id="done185" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(199)" id="cell199">
+<a class="poster" href="videos/199.mp4" target="_blank"><img src="thumbs/199.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100987661926252737" target="_blank" rel="noopener">
+  <b>John Yeo</b><small>@johnyeo_ · 4900人看过</small>
+  <p>Jev让我们的Slack代理速度提高了2倍️ 我们的代理可能会相当慢，因为它需要阅读技能并弄清楚要调用哪些工具。 我们使用@typesafeai的新模型来加速这一过程，首先向它传递提示…</p>
+</a>
+<span class="done" id="done199" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(200)" id="cell200">
+<a class="poster" href="videos/200.mp4" target="_blank"><img src="thumbs/200.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100617830890885415" target="_blank" rel="noopener">
+  <b>Nidhi Singh</b><small>@nidhisinghattri · 6100人看过</small>
+  <p>我使用typesafeai的jev来构建一个路由器模型。 你给出一个任务和你当前的人工智能订阅，jev会告诉你哪个代理/模型应该把它捡起来。 把这个和herdr搭配起来，这将是一个杀手…</p>
+</a>
+<span class="done" id="done200" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section><section class="lesson" id="L-coding">
+<header class="l-head" onclick="toggle('coding')">
+  <span class="l-no">03</span>
+  <h2>🛠 编码工具链</h2>
+  <span class="l-stat">12 案例 · 377.5万 浏览</span>
+  <span class="l-arrow" id="ar-coding">▾</span>
+</header>
+<p class="l-desc">Claude Code / PR 评审 / 自动化测试里的加速器——程序员的活：PR 评审便宜 200 倍、给代码质量打分——Jev 评审 MCP 就是这类。</p>
+<div class="l-body" id="bd-coding">
+  <div class="duo">
+    <div class="pick"><a href="videos/074.mp4" target="_blank"><img src="thumbs/074.jpg"><span class="play big">▶ 先看这条</span></a><b>Paolo Rosson</b><small>@redp314 · 33.1万人看过</small><p>让Jev审查了我的公关。比Claude便宜约200倍，半秒内即可回复 视频中的6个真实PR。每人0.00007美元。1，000 PR = 7美分，Opus 5约为14.50美元 paste a diff → ONE ca</p></div>
+    <div class="pick"><a href="videos/069.mp4" target="_blank"><img src="thumbs/069.jpg"><span class="play big">▶ 再看这条</span></a><b>Niaz Morshed</b><small>@niazmorshed_ · 4.4万人看过</small><p>建立&#x27; jev-review &#x27;@typesafeai 这是一个实验性的、本地优先的LCP插件，为编码代理提供跨不同指标的评分质量反馈循环。 特工在工作时致电jev，获得评分，进行改进，并重复循环 尝试以下网址https</p></div>
+  </div>
+  <details class="more"><summary>本类还有 10 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(27)" id="cell27">
+<a class="poster" href="videos/027.mp4" target="_blank"><img src="thumbs/027.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100700176444731780" target="_blank" rel="noopener">
+  <b>Zachi</b><small>@iam_zachi · 2.0万人看过</small>
+  <p>我使用jev @typesafeai构建了一个SQL扩展，可以将普通英语转换为WHERE Clause jev的地方（人们“可以在家工作”） 每一行都会被单独判断，不需要索引，也不需要…</p>
+</a>
+<span class="done" id="done27" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(50)" id="cell50">
+<a class="poster" href="videos/050.mp4" target="_blank"><img src="thumbs/050.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100913118528393596" target="_blank" rel="noopener">
+  <b>kaize</b><small>@0x_kaize · 2500人看过</small>
+  <p>我访问了Jev并立即将其插入Claude Code，看看它是否真的解决了代理工作流程中最大的难题：上下文压缩 &gt;结果：相当狂野 为那些错过它的人提供快速背景： 每个Claude Cod…</p>
+</a>
+<span class="done" id="done50" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(59)" id="cell59">
+<a class="poster" href="videos/059.mp4" target="_blank"><img src="thumbs/059.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100694549362553153" target="_blank" rel="noopener">
+  <b>tamara</b><small>@tamarajtran · 265.9万人看过</small>
+  <p>找到了@typesafeai Jev的完美用例： 瞬时压实 2026年，为何压实仍是总结提示？ Jev可以通过对每个工具调用进行评分并删除不相关的内容来即时实现https://t.co…</p>
+</a>
+<span class="done" id="done59" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(69)" id="cell69">
+<a class="poster" href="videos/069.mp4" target="_blank"><img src="thumbs/069.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100465662867218857" target="_blank" rel="noopener">
+  <b>Niaz Morshed</b><small>@niazmorshed_ · 4.4万人看过</small>
+  <p>建立&#x27; jev-review &#x27;@typesafeai 这是一个实验性的、本地优先的LCP插件，为编码代理提供跨不同指标的评分质量反馈循环。 特工在工作时致电jev，获得评分，进行改进…</p>
+</a>
+<span class="done" id="done69" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(74)" id="cell74">
+<a class="poster" href="videos/074.mp4" target="_blank"><img src="thumbs/074.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100585126652481915" target="_blank" rel="noopener">
+  <b>Paolo Rosson</b><small>@redp314 · 33.1万人看过</small>
+  <p>让Jev审查了我的公关。比Claude便宜约200倍，半秒内即可回复 视频中的6个真实PR。每人0.00007美元。1，000 PR = 7美分，Opus 5约为14.50美元 pas…</p>
+</a>
+<span class="done" id="done74" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(76)" id="cell76">
+<a class="poster" href="videos/076.mp4" target="_blank"><img src="thumbs/076.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100587614927741435" target="_blank" rel="noopener">
+  <b>Arik Chakma</b><small>@imarikchakma · 4100人看过</small>
+  <p>使用@typesafeai Jev构建了终极语法高光笔（我的意思是为什么不）。 它可以突出显示任何语言，甚至是我编造的语言。</p>
+</a>
+<span class="done" id="done76" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(103)" id="cell103">
+<a class="poster" href="videos/103.mp4" target="_blank"><img src="thumbs/103.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100966838905585687" target="_blank" rel="noopener">
+  <b>Oskar</b><small>@o_kwasniewski · 1.7万人看过</small>
+  <p>e2e + jev from @typesafeai 我正在构建一个开源框架，用于使用代理运行e2 e测试。支持Web，移动（和更多！） 即将推出：https://t.co/G3XB2…</p>
+</a>
+<span class="done" id="done103" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(115)" id="cell115">
+<a class="poster" href="videos/115.mp4" target="_blank"><img src="thumbs/115.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100287208166969746" target="_blank" rel="noopener">
+  <b>Filip</b><small>@Neriousy · 50.9万人看过</small>
+  <p>使用@typesafeai jev @opencode测试应用程序将非常快 小演示：https://t.co/WLSkpe9OZn</p>
+</a>
+<span class="done" id="done115" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(123)" id="cell123">
+<a class="poster" href="videos/123.mp4" target="_blank"><img src="thumbs/123.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100882207879434359" target="_blank" rel="noopener">
+  <b>Rafal Wilinski</b><small>@rafalwilinski · 17.8万人看过</small>
+  <p>多亏了@typesafeai的Jev，我们现在有了大规模并行的基于浏览器的对抗测试套件，它试图打破每个版本。 而且很便宜https://t.co/WoIlqGjjNB</p>
+</a>
+<span class="done" id="done123" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(131)" id="cell131">
+<a class="poster" href="videos/131.mp4" target="_blank"><img src="thumbs/131.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100716353862746177" target="_blank" rel="noopener">
+  <b>Keiran Haax</b><small>@keiranhaax · 289人看过</small>
+  <p>告诉我的hermes代理在我目前为OSS开发的iOS应用程序上测试@typesafeai Jev模型 赫尔墨斯把屏幕录下来，用电报发给我 我会继续对这个模型做更多的测试 这是输出htt…</p>
+</a>
+<span class="done" id="done131" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(175)" id="cell175">
+<a class="poster" href="videos/175.mp4" target="_blank"><img src="thumbs/175.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100928490367230201" target="_blank" rel="noopener">
+  <b>Kaushik</b><small>@0xkaushik_k · 1200人看过</small>
+  <p>很早就访问了@typesafeai Jev，并花了几个小时对其进行了改进。 我不断碰到的问题是：代理跟踪可以告诉您运行了哪个工具，花费了多长时间，返回了什么，但永远不会告诉您代理实际上…</p>
+</a>
+<span class="done" id="done175" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(193)" id="cell193">
+<a class="poster" href="videos/193.mp4" target="_blank"><img src="thumbs/193.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100584682664628454" target="_blank" rel="noopener">
+  <b>Raihan Khan</b><small>@raihankhan_rk · 8600人看过</small>
+  <p>今天早上我通过@typesafeai访问了Jev，并为此构建了一个很酷的用例 引入迪夫Jury-只需粘贴任何公共公关链接，Jev就会立即告诉您合并是否安全或是否需要审查收件箱 🔗随时在…</p>
+</a>
+<span class="done" id="done193" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section><section class="lesson" id="L-browser">
+<header class="l-head" onclick="toggle('browser')">
+  <span class="l-no">04</span>
+  <h2>🖱 浏览器与电脑遥控</h2>
+  <span class="l-stat">18 案例 · 374.8万 浏览</span>
+  <span class="l-arrow" id="ar-browser">▾</span>
+</header>
+<p class="l-desc">Browser Use、Computer Use、语音操作 Mac——亲手点：「Jev Use」对比视频（就是它把 Codex 变快）+ 7 秒找航班。这是最容易亲眼看到效果的一类。</p>
+<div class="l-body" id="bd-browser">
+  <div class="duo">
+    <div class="pick"><a href="videos/186.mp4" target="_blank"><img src="thumbs/186.jpg"><span class="play big">▶ 先看这条</span></a><b>Sac</b><small>@Saccc_c · 14.5万人看过</small><p>卧槽，居然真有比Codex内置computer use更快的操作电脑的方式 我尝试用Codex+Jev打造了一个加强版computer use，我称之为「Jev Use」。比内置的更快更丝滑，token消耗却差不多 下面</p></div>
+    <div class="pick"><a href="videos/026.mp4" target="_blank"><img src="thumbs/026.jpg"><span class="play big">▶ 再看这条</span></a><b>Gregor Zunic</b><small>@gregpr07 · 248.9万人看过</small><p>突破：浏览器使用+ Jev =超快收件箱 发现航班需要7秒，只需0.0039美元 &amp;gt;每一步都有新的行动空间 &amp;gt;多姆状态空间 &amp;gt;LLM小型回退到类型 (this视频速度为1倍（顺便说一句） 构建了一个小型</p></div>
+  </div>
+  <details class="more"><summary>本类还有 16 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(13)" id="cell13">
+<a class="poster" href="videos/013.mp4" target="_blank"><img src="thumbs/013.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100545295201288678" target="_blank" rel="noopener">
+  <b>sav</b><small>@savboj · 8.6万人看过</small>
+  <p>如果你眨眼，你可能会错过它 Jev +计算机使用=比任何LLM快100倍 @typesafeai https://t.co/JG09Wx7UCo</p>
+</a>
+<span class="done" id="done13" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(24)" id="cell24">
+<a class="poster" href="videos/024.mp4" target="_blank"><img src="thumbs/024.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100313645116952701" target="_blank" rel="noopener">
+  <b>joogie</b><small>@princecaarlo · 1.9万人看过</small>
+  <p>好吧，浏览器使用是合法的用例 代理浏览器Jev循环 目标：从“咖啡”到“人工智能”的维基竞赛https://t.co/565VqWYgoJ</p>
+</a>
+<span class="done" id="done24" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(26)" id="cell26">
+<a class="poster" href="videos/026.mp4" target="_blank"><img src="thumbs/026.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100411066966749359" target="_blank" rel="noopener">
+  <b>Gregor Zunic</b><small>@gregpr07 · 248.9万人看过</small>
+  <p>突破：浏览器使用+ Jev =超快收件箱 发现航班需要7秒，只需0.0039美元 &amp;gt;每一步都有新的行动空间 &amp;gt;多姆状态空间 &amp;gt;LLM小型回退到类型 (this视频速度…</p>
+</a>
+<span class="done" id="done26" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(36)" id="cell36">
+<a class="poster" href="videos/036.mp4" target="_blank"><img src="thumbs/036.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100757989212754085" target="_blank" rel="noopener">
+  <b>Alan Daitch</b><small>@AlanDaitch · 2.2万人看过</small>
+  <p>克劳德把我和杰夫和剧作家结合起来寻找二手的。每分钟阅读大约 26 篇文章 ， 并在 406 毫秒内决定如何处理每篇文章 他排除了那些不符合我正在寻找的东西 ， 为那些符合我正在寻找的东…</p>
+</a>
+<span class="done" id="done36" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(54)" id="cell54">
+<a class="poster" href="videos/054.mp4" target="_blank"><img src="thumbs/054.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100631847155994852" target="_blank" rel="noopener">
+  <b>Milind S</b><small>@milindlabs · 11.2万人看过</small>
+  <p>好吧，Jev实际上可以很好地使用电脑 没有任何屏幕截图，或者LLM和没有像素离开我的Mac 我甚至没有读过Dom元素 本地CoreML模型分割了屏幕上的每个按钮和UI元素。 设备上OC…</p>
+</a>
+<span class="done" id="done54" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(60)" id="cell60">
+<a class="poster" href="videos/060.mp4" target="_blank"><img src="thumbs/060.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100933183931900346" target="_blank" rel="noopener">
+  <b>Kai</b><small>@hqmank · 1.4万人看过</small>
+  <p>我和杰夫一起重建了我的工作爬虫。 任务：从一家公司的官方主页开始，找到职业，并找到与我的个人资料相匹配的工作。 之前，攻读LLM：~5分钟。 之后，与Jev：在我的测试中刚刚超过20秒…</p>
+</a>
+<span class="done" id="done60" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(68)" id="cell68">
+<a class="poster" href="videos/068.mp4" target="_blank"><img src="thumbs/068.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100927820050366734" target="_blank" rel="noopener">
+  <b>Christopher</b><small>@mtropolis_chris · 95人看过</small>
+  <p>好吧，现在您还可以制作Jev自动拒绝cookie横幅和弹出窗口 以下是它在不同网站（gymshark、fashionnova、nyPost）上工作的演示https://t.co/QZb…</p>
+</a>
+<span class="done" id="done68" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(116)" id="cell116">
+<a class="poster" href="videos/116.mp4" target="_blank"><img src="thumbs/116.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100938813707366848" target="_blank" rel="noopener">
+  <b>Nagajyothi</b><small>@njpCoder · 170人看过</small>
+  <p>我做了一个Chrome扩展，可以让我自己写X算法。 它在我看到之前就把订婚诱饵、空钩和广告藏起来了。规则是简单的英语。@typesafeai的Jev在半秒内检查每个帖子。 有人想试试吗…</p>
+</a>
+<span class="done" id="done116" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(145)" id="cell145">
+<a class="poster" href="videos/145.mp4" target="_blank"><img src="thumbs/145.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100408498446111031" target="_blank" rel="noopener">
+  <b>Mormon Negro</b><small>@mormonnegro · 2.5万人看过</small>
+  <p>我刚刚完成了 @typesafeai + Chromium Headless 的实现 ， 这样我的代理就可以以很快的速度浏览互联网! 在这个例子中 ， 我要求代理进入维基百科中的 &quot;咖…</p>
+</a>
+<span class="done" id="done145" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(146)" id="cell146">
+<a class="poster" href="videos/146.mp4" target="_blank"><img src="thumbs/146.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100520134481735729" target="_blank" rel="noopener">
+  <b>Marcel Pociot 🧪</b><small>@marcelpociot · 6.7万人看过</small>
+  <p>我用Jev @typesafeai构建了一个浏览器扩展，可以基于自然语言隐藏/折叠X上的帖子。 它速度如此之快，以至于不引人注目，而且价格极其便宜……这一定是“广告拦截器”和内容防火墙…</p>
+</a>
+<span class="done" id="done146" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(153)" id="cell153">
+<a class="poster" href="videos/153.mp4" target="_blank"><img src="thumbs/153.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100262612428894676" target="_blank" rel="noopener">
+  <b>aaron</b><small>@awlevin · 26.9万人看过</small>
+  <p>我使用@typesafeai建立了计算机用途！它比opus 5便宜155倍，快20倍，并且适用于操作系统 在下面的vid线程中了解有关其工作原理的更多信息：https://t.co/K…</p>
+</a>
+<span class="done" id="done153" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(155)" id="cell155">
+<a class="poster" href="videos/155.mp4" target="_blank"><img src="thumbs/155.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100321685081559542" target="_blank" rel="noopener">
+  <b>Steve Krouse</b><small>@stevekrouse · 3.5万人看过</small>
+  <p>jev +内核浏览器使用演示 太酷了！好快！ 自己尝试一下：https://t.co/CoVFzscaa0 https://t.co/OyXdNA1H0F</p>
+</a>
+<span class="done" id="done155" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(169)" id="cell169">
+<a class="poster" href="videos/169.mp4" target="_blank"><img src="thumbs/169.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100577979021832365" target="_blank" rel="noopener">
+  <b>Moritz Kremb</b><small>@moritzkremb · 25.8万人看过</small>
+  <p>哇，这真的有效！Jev现在让我用声音实时控制浏览器 &gt;我说话 &gt;已发送给杰夫的笔录 &gt; jev在~ 300 ms内返回概率 &gt;浏览器点击 费用：每次决定0.0002美元 我对这有多快感…</p>
+</a>
+<span class="done" id="done169" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(178)" id="cell178">
+<a class="poster" href="videos/178.mp4" target="_blank"><img src="thumbs/178.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100648648434434298" target="_blank" rel="noopener">
+  <b>camsoft2000</b><small>@camsoft2000 · 9.7万人看过</small>
+  <p>现在我们正在做饭。得到@typesafeai的Jev + AXe控制iOS模拟器现在超快，使用LLM的成本的一小部分。这是改变游戏规则！https://t.co/JK5r23ySoI</p>
+</a>
+<span class="done" id="done178" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(181)" id="cell181">
+<a class="poster" href="videos/181.mp4" target="_blank"><img src="thumbs/181.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100814590300889426" target="_blank" rel="noopener">
+  <b>Andy Gao</b><small>@instantricecook · 3.2万人看过</small>
+  <p>我使用@typesafeai的Jev为我的Mac构建了一台语音控制计算机，它的速度有多快，真是太疯狂了！ 我可以口述“打开笔记应用程序并创建.“我还没说完，应用程序就打开了。https…</p>
+</a>
+<span class="done" id="done181" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(182)" id="cell182">
+<a class="poster" href="videos/182.mp4" target="_blank"><img src="thumbs/182.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100883711260823912" target="_blank" rel="noopener">
+  <b>阿蔺A-Lin</b><small>@alin_zone · 2.1万人看过</small>
+  <p>🔥 卧槽了，jev 简直太适合 codex 用户了，强烈建议 codex 用户去尝试下 jev 因为 jev 非常适合需要快速进行复杂决策和评估的场景，所以和 codex 的 comp…</p>
+</a>
+<span class="done" id="done182" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(186)" id="cell186">
+<a class="poster" href="videos/186.mp4" target="_blank"><img src="thumbs/186.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100864907046768890" target="_blank" rel="noopener">
+  <b>Sac</b><small>@Saccc_c · 14.5万人看过</small>
+  <p>卧槽，居然真有比Codex内置computer use更快的操作电脑的方式 我尝试用Codex+Jev打造了一个加强版computer use，我称之为「Jev Use」。比内置的更快…</p>
+</a>
+<span class="done" id="done186" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(187)" id="cell187">
+<a class="poster" href="videos/187.mp4" target="_blank"><img src="thumbs/187.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100448995415863323" target="_blank" rel="noopener">
+  <b>Vlad Terin</b><small>@VladTerin · 5.7万人看过</small>
+  <p>我说话。法典点击。观看浏览器切换 该视频是1 x！速度 内置Jev浏览器：适用于现有Codex浏览器工具的开源适配器。自然地说出任务; Codex计划，Jev选择，浏览器移动。 @sa…</p>
+</a>
+<span class="done" id="done187" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section><section class="lesson" id="L-game">
+<header class="l-head" onclick="toggle('game')">
+  <span class="l-no">05</span>
+  <h2>🎮 游戏与自动驾驶</h2>
+  <span class="l-stat">30 案例 · 335.9万 浏览</span>
+  <span class="l-arrow" id="ar-game">▾</span>
+</header>
+<p class="l-desc">马里奥、火箭、特斯拉 FSD——炫技主战场——上手门槛最低：看中文博主杀戮尖塔代打，再看一小时重建特斯拉 FSD。</p>
+<div class="l-body" id="bd-game">
+  <div class="duo">
+    <div class="pick"><a href="videos/067.mp4" target="_blank"><img src="thumbs/067.jpg"><span class="play big">▶ 先看这条</span></a><b>paulwei</b><small>@coolish · 22.5万人看过</small><p>昨天出的 https://t.co/6eiMFaJTrj Jev 模型 适合高频决策，那岂不又是适合打游戏？ 之前用 GPT-6 Astra 代打杀戮尖塔2 能力强但速度慢。 我刚实测用 Jev 打，行动思考只需 0.7</p></div>
+    <div class="pick"><a href="videos/071.mp4" target="_blank"><img src="thumbs/071.jpg"><span class="play big">▶ 再看这条</span></a><b>Justin Schroeder</b><small>@jpschroeder · 55.6万人看过</small><p>我用Jev在不到一个小时的时间里重建了特斯拉全自动驾驶。 该模型完全解锁。https://t.co/mUrvaFrlQ7</p></div>
+  </div>
+  <details class="more"><summary>本类还有 28 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(1)" id="cell1">
+<a class="poster" href="videos/001.mp4" target="_blank"><img src="thumbs/001.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100384258804093139" target="_blank" rel="noopener">
+  <b>@TheINAOG</b><small>@TheINAOG · 296人看过</small>
+  <p>最后我访问了@typesafeai（谢谢你们！） Jev +模拟器前瞻性清除《超级马里奥兄弟》1-1仅需0.04美元。 在这个设置中，Jev看不到像素：我将RAM解析为结构化状态、模拟…</p>
+</a>
+<span class="done" id="done1" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(5)" id="cell5">
+<a class="poster" href="videos/005.mp4" target="_blank"><img src="thumbs/005.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100970810483823086" target="_blank" rel="noopener">
+  <b>Adrián Mato 🐙</b><small>@adrianmg · 646人看过</small>
+  <p>从@typesafeai获得了一些乐趣，在手动和人工智能驱动的游戏之间无缝切换。 它的时钟2-3调用/秒在60 FPS，与~ 150毫秒的平均延迟。 最有趣的部分不是速度。它将游戏提炼…</p>
+</a>
+<span class="done" id="done5" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(9)" id="cell9">
+<a class="poster" href="videos/009.mp4" target="_blank"><img src="thumbs/009.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100485665666277828" target="_blank" rel="noopener">
+  <b>sengpt</b><small>@sengpt · 5.5万人看过</small>
+  <p>朋友们 我得到了 jev 的早期访问， 并开始测试它， 我不得不说我真的印象深刻 请观看我录制的演示。 这绝对不是一个加速的视频。4 个杰夫正在互相玩 101 游戏， 看看游戏的速度。…</p>
+</a>
+<span class="done" id="done9" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(12)" id="cell12">
+<a class="poster" href="videos/012.mp4" target="_blank"><img src="thumbs/012.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100325221932958134" target="_blank" rel="noopener">
+  <b>Toran Bruce Richards</b><small>@SigGravitas · 4.8万人看过</small>
+  <p>犹太人会开车！🤯 我将Jev连接到驾驶模拟器的原始控制系统，这段视频显示了他的实时驾驶。 实时是这里的关键。询问模型每50 ms要做什么，然后将其渲染为“实时”视频是一回事，但在这个模…</p>
+</a>
+<span class="done" id="done12" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(16)" id="cell16">
+<a class="poster" href="videos/016.mp4" target="_blank"><img src="thumbs/016.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100690568947159309" target="_blank" rel="noopener">
+  <b>Utkarsh Agrawal</b><small>@uttkarsh_42 · 7.5万人看过</small>
+  <p>所以我让杰夫完全控制猎鹰9级火箭 全面发射到着陆 代码中没有自动驾驶仪，没有脚本轨迹，没有安全否决权 每个决定都是由jev做出的（您可以在视频底部看到决定） 是的，它能够着陆助推器 而…</p>
+</a>
+<span class="done" id="done16" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(30)" id="cell30">
+<a class="poster" href="videos/030.mp4" target="_blank"><img src="thumbs/030.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100346121239544184" target="_blank" rel="noopener">
+  <b>SamG</b><small>@SamGCoder · 4200人看过</small>
+  <p>测试@typesafeai 测试TypSafe作为人工智能游戏伴侣的决策层。 它读取玩家的消息和游戏上下文，然后返回动作、目的地和信心。游戏代码让角色行动。对话已预先编写; TypSa…</p>
+</a>
+<span class="done" id="done30" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(51)" id="cell51">
+<a class="poster" href="videos/051.mp4" target="_blank"><img src="thumbs/051.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100715684732801095" target="_blank" rel="noopener">
+  <b>Marcel Pociot 🧪</b><small>@marcelpociot · 5700人看过</small>
+  <p>Jev为游戏收件箱开辟了多种可能性 我构建了Wordshift -第一款使用@typesafeai的Jev构建的语义类型赛车游戏 比喷气式飞机慢，比大象大，比猎豹快。 差异越大，您的汽…</p>
+</a>
+<span class="done" id="done51" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(53)" id="cell53">
+<a class="poster" href="videos/053.mp4" target="_blank"><img src="thumbs/053.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100489858951073858" target="_blank" rel="noopener">
+  <b>Paolo Rosson</b><small>@redp314 · 20.2万人看过</small>
+  <p>我得到了一个魔方，可以用@typesafeai的Jev自行解决，它像人一样解决这个问题，94步，而不是22步的最佳解决方案。 Jev不是LLM，它只是在~ 250 ms内以一定的概率回…</p>
+</a>
+<span class="done" id="done53" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(58)" id="cell58">
+<a class="poster" href="videos/058.mp4" target="_blank"><img src="thumbs/058.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100644221279424925" target="_blank" rel="noopener">
+  <b>atomic.chat</b><small>@atomic_chat_hq · 5.1万人看过</small>
+  <p>Jev v1.13通过概率计算收件箱躲避火箭🚀 @typesafeai的新非LLM模型返回决策而不是文本，因此我们让它在火箭坠落时每330 ms计算一次安全瓷砖，并且它以不到一美分的价…</p>
+</a>
+<span class="done" id="done58" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(67)" id="cell67">
+<a class="poster" href="videos/067.mp4" target="_blank"><img src="thumbs/067.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100570517954838897" target="_blank" rel="noopener">
+  <b>paulwei</b><small>@coolish · 22.5万人看过</small>
+  <p>昨天出的 https://t.co/6eiMFaJTrj Jev 模型 适合高频决策，那岂不又是适合打游戏？ 之前用 GPT-6 Astra 代打杀戮尖塔2 能力强但速度慢。 我刚实测…</p>
+</a>
+<span class="done" id="done67" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(71)" id="cell71">
+<a class="poster" href="videos/071.mp4" target="_blank"><img src="thumbs/071.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100347770867458384" target="_blank" rel="noopener">
+  <b>Justin Schroeder</b><small>@jpschroeder · 55.6万人看过</small>
+  <p>我用Jev在不到一个小时的时间里重建了特斯拉全自动驾驶。 该模型完全解锁。https://t.co/mUrvaFrlQ7</p>
+</a>
+<span class="done" id="done71" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(72)" id="cell72">
+<a class="poster" href="videos/072.mp4" target="_blank"><img src="thumbs/072.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100281335369626098" target="_blank" rel="noopener">
+  <b>Simon Edwardsson</b><small>@SimEdw · 521人看过</small>
+  <p>@CompleteSkeptic的Jev Doom演示非常酷，所以在我等待访问时，我在@GoogleGemma的Gemma 4 E2 B上尝试了同样的事情。 我的直接拍摄640 x 4…</p>
+</a>
+<span class="done" id="done72" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(73)" id="cell73">
+<a class="poster" href="videos/073.mp4" target="_blank"><img src="thumbs/073.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100081351508767003" target="_blank" rel="noopener">
+  <b>Just_Lingonberry_352 🌼</b><small>@JustLingonberry · 12.5万人看过</small>
+  <p>@typesafeai玩Minecraft，玩2分钟只需1美分（15万代币），自动知道在夜幕降临时躲避僵尸，无需提示https://t.co/kAlHjh2Dfg</p>
+</a>
+<span class="done" id="done73" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(79)" id="cell79">
+<a class="poster" href="videos/079.mp4" target="_blank"><img src="thumbs/079.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100353122850001398" target="_blank" rel="noopener">
+  <b>Sam Enoka</b><small>@maybe_im_sam · 6000人看过</small>
+  <p>早上醒来时，很早就可以访问@typesafeai，并且非常兴奋地尝试一下。今天早上上班前做了一个烹饪演示，其中typesafe在我的@threejs动作游戏中驱动了一位AI合作伙伴。可…</p>
+</a>
+<span class="done" id="done79" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(85)" id="cell85">
+<a class="poster" href="videos/085.mp4" target="_blank"><img src="thumbs/085.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100745778390081563" target="_blank" rel="noopener">
+  <b>Wuyang Zhou</b><small>@wuyang_zhou · 4.0万人看过</small>
+  <p>顺便说一句，这是你得到的，如果你问Jev玩我的世界与GPT-6阿斯特拉。 我还是不敢相信 https://t.co/ERDnsVWPLZ</p>
+</a>
+<span class="done" id="done85" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(97)" id="cell97">
+<a class="poster" href="videos/097.mp4" target="_blank"><img src="thumbs/097.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100738237237002706" target="_blank" rel="noopener">
+  <b>Mau Baron</b><small>@maubaron · 18.7万人看过</small>
+  <p>杰夫疯了吗？ 这是杰夫与《粉碎兄弟》对抗自己 他正在控制所有4个不同的角色。 并真正决定什么是最好的 与自己对抗的举动 这一切都在几分之一秒之内 我使用了超过2200万个代币来玩这场比…</p>
+</a>
+<span class="done" id="done97" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(99)" id="cell99">
+<a class="poster" href="videos/099.mp4" target="_blank"><img src="thumbs/099.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101028527978020920" target="_blank" rel="noopener">
+  <b>Neel Patel</b><small>@Neel490 · 16人看过</small>
+  <p>让Jev在第一人称射击游戏中与OpenJev进行了战斗。https://t.co/wSB3psnvwB https://t.co/vwewLu682T</p>
+</a>
+<span class="done" id="done99" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(106)" id="cell106">
+<a class="poster" href="videos/106.mp4" target="_blank"><img src="thumbs/106.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100290364657848538" target="_blank" rel="noopener">
+  <b>Zane Chee</b><small>@injaneity · 3400人看过</small>
+  <p>@typesafeai jev在玩2048时比astra快5倍，便宜1000倍！尽管与astra和fable等最先进的模型相比，它（显然）并不擅长推理 接下来我们应该尝试什么？http…</p>
+</a>
+<span class="done" id="done106" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(126)" id="cell126">
+<a class="poster" href="videos/126.mp4" target="_blank"><img src="thumbs/126.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100372930282573876" target="_blank" rel="noopener">
+  <b>AI/ML API</b><small>@aimlapi · 52.6万人看过</small>
+  <p>Jev VS寓言5.1 VS GPT-6阿斯特拉：国际象棋 typesafe的新Jev V13不是LLM。它不聊天，不解释，不写代码-它只做决定。所以我们让它和边境LLM玩闪电战 测试…</p>
+</a>
+<span class="done" id="done126" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(127)" id="cell127">
+<a class="poster" href="videos/127.mp4" target="_blank"><img src="thumbs/127.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100524915007144289" target="_blank" rel="noopener">
+  <b>Duncan</b><small>@ephraimduncan · 8600人看过</small>
+  <p>我访问了@typesafeai的Jev模型并让它玩吃豆人 给定迷宫状态为SON，Jev决定Pac-Man在每个路口应该转向哪个方向，并实时玩。 演示链接| https://t.co/G…</p>
+</a>
+<span class="done" id="done127" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(129)" id="cell129">
+<a class="poster" href="videos/129.mp4" target="_blank"><img src="thumbs/129.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100086301894881578" target="_blank" rel="noopener">
+  <b>Faadil Shaik</b><small>@faadilhshaik · 56.9万人看过</small>
+  <p>让@typesafeai的新模特Jev玩《超级马里奥兄弟》 快速推理+结构化输出使其非常适合实时用例。 我很高兴看到这些新型号可以做什么！https://t.co/wXXW2SsSXG</p>
+</a>
+<span class="done" id="done129" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(130)" id="cell130">
+<a class="poster" href="videos/130.mp4" target="_blank"><img src="thumbs/130.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100315518930661861" target="_blank" rel="noopener">
+  <b>Marcus Lowe</b><small>@marcus_lowe · 7.6万人看过</small>
+  <p>我很早就访问了@typesafeai的新Jev模型，并构建了一个玩俄罗斯方块的演示 发电速度如此之快，以至于正在将区块推倒 这感觉就像是另一个“这改变了一切”的时刻https://t.…</p>
+</a>
+<span class="done" id="done130" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(132)" id="cell132">
+<a class="poster" href="videos/132.mp4" target="_blank"><img src="thumbs/132.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100989012966031417" target="_blank" rel="noopener">
+  <b>Juris</b><small>@Juris_Savos · 1500人看过</small>
+  <p>来自@typesafeai的Jev玩@BalatroGame。每手牌都会看到牌、小丑和盲牌，然后在约200- 500 ms内选择玩或丢弃。下注后，它也会购物。完整运行的费用不到一美分。…</p>
+</a>
+<span class="done" id="done132" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(135)" id="cell135">
+<a class="poster" href="videos/135.mp4" target="_blank"><img src="thumbs/135.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100634359099232678" target="_blank" rel="noopener">
+  <b>Max Blade</b><small>@_MaxBlade · 24.3万人看过</small>
+  <p>杰夫疯了吗？ 这是Jev以超人的速度玩《地铁跑酷》，同时也玩50场比赛。 进行这次运行的成本不到一美分。 Jev并没有取代astra或fable等llms，而是开辟了一个全新的能力世界…</p>
+</a>
+<span class="done" id="done135" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(144)" id="cell144">
+<a class="poster" href="videos/144.mp4" target="_blank"><img src="thumbs/144.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100763022385934827" target="_blank" rel="noopener">
+  <b>Yazan</b><small>@YazanO_0 · 539人看过</small>
+  <p>#杰夫 原来蛇也不错！ 也快！ 活了321招！ #demo #day_2 #类型_safe https://t.co/OFcdy6bsLH</p>
+</a>
+<span class="done" id="done144" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(150)" id="cell150">
+<a class="poster" href="videos/150.mp4" target="_blank"><img src="thumbs/150.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100486780298383801" target="_blank" rel="noopener">
+  <b>JNobre</b><small>@joaobnobre · 758人看过</small>
+  <p>让@typesafeai的Jev玩Minecraft Skyblack。 一个代理读取游戏状态并通过输入决策选择下一步行动。https://t.co/RXmybNhVtB</p>
+</a>
+<span class="done" id="done150" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(157)" id="cell157">
+<a class="poster" href="videos/157.mp4" target="_blank"><img src="thumbs/157.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101010773157761481" target="_blank" rel="noopener">
+  <b>Hassan</b><small>@nutlope · 4700人看过</small>
+  <p>国际象棋Jev vs GLM 5.3！ 结果： GLM 5.3被将军29步拿下 Jev：每次动作~ 0.3秒且&lt;0.0001美元 GLM 5.3：每次动作~ 5.8秒，约0.008美元…</p>
+</a>
+<span class="done" id="done157" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(163)" id="cell163">
+<a class="poster" href="videos/163.mp4" target="_blank"><img src="thumbs/163.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100817199686619348" target="_blank" rel="noopener">
+  <b>Parth</b><small>@mittalparth_ · 619人看过</small>
+  <p>@typesafeai jev玩Chrome dino！ 该模型速度惊人！ - 平均响应时间：~ 280 ms - 花费1.16亿代币 - 成本？只要4.65美元。 - 这里输入的是一…</p>
+</a>
+<span class="done" id="done163" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(165)" id="cell165">
+<a class="poster" href="videos/165.mp4" target="_blank"><img src="thumbs/165.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100400923826606523" target="_blank" rel="noopener">
+  <b>Neel Patel</b><small>@Neel490 · 32.4万人看过</small>
+  <p>我认为jev对自动驾驶的影响可能是巨大的https://t.co/advoRDSOz7</p>
+</a>
+<span class="done" id="done165" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(174)" id="cell174">
+<a class="poster" href="videos/174.mp4" target="_blank"><img src="thumbs/174.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100536977162715265" target="_blank" rel="noopener">
+  <b>Ashutosh Mathore</b><small>@ashutoshftw · 2.0万人看过</small>
+  <p>让Jev、Claude俳句4.5和Gemini 3.5 Flash精简版玩俄罗斯方块。同样的200件作品，同样的法律动作，实时。 Jev：9200分，75线，300 ms/移动，0错误…</p>
+</a>
+<span class="done" id="done174" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section><section class="lesson" id="L-trading">
+<header class="l-head" onclick="toggle('trading')">
+  <span class="l-no">06</span>
+  <h2>💹 真金白银交易</h2>
+  <span class="l-stat">6 案例 · 185.3万 浏览</span>
+  <span class="l-arrow" id="ar-trading">▾</span>
+</header>
+<p class="l-desc">有人赚钱，有人真钱止损——含翻车实录——真金实银：看 104 万人围观的买卖机器人，再看中文解读「为啥交易只需要判断」。</p>
+<div class="l-body" id="bd-trading">
+  <div class="duo">
+    <div class="pick"><a href="videos/104.mp4" target="_blank"><img src="thumbs/104.jpg"><span class="play big">▶ 先看这条</span></a><b>Jarrod Watts</b><small>@jarrodwatts · 104.6万人看过</small><p>我和Jev一起开发了一个交易机器人！ Jev根据资产对的价格信息决定是否应该“买入”或“卖出”，并执行真实交易。 它使用Monad每300 ms块在Kuru的链上订单簿上下订单。 演示链接| https://t.co/v</p></div>
+    <div class="pick"><a href="videos/014.mp4" target="_blank"><img src="thumbs/014.jpg"><span class="play big">▶ 再看这条</span></a><b>比特币橙子Trader</b><small>@oragnes · 63.5万人看过</small><p>卧槽，JEV 的出现很可能就是自动智能交易的起点。 昨天JEV在AI 圈刷屏，今天 Monad 工程师就用JEV做了一个自动交易机器人。 实时读取 MON/USDC 价格，JEV 不负责写分析报告，也不跟你解释一堆逻辑，</p></div>
+  </div>
+  <details class="more"><summary>本类还有 4 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(14)" id="cell14">
+<a class="poster" href="videos/014.mp4" target="_blank"><img src="thumbs/014.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100400215245377895" target="_blank" rel="noopener">
+  <b>比特币橙子Trader</b><small>@oragnes · 63.5万人看过</small>
+  <p>卧槽，JEV 的出现很可能就是自动智能交易的起点。 昨天JEV在AI 圈刷屏，今天 Monad 工程师就用JEV做了一个自动交易机器人。 实时读取 MON/USDC 价格，JEV 不负…</p>
+</a>
+<span class="done" id="done14" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(18)" id="cell18">
+<a class="poster" href="videos/018.mp4" target="_blank"><img src="thumbs/018.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100929105382564113" target="_blank" rel="noopener">
+  <b>Indra</b><small>@IndraVahan · 3.9万人看过</small>
+  <p>我给了jev 1，00，000英镑，以便以5倍杠杆进行漂亮的盘中交易。 这不是纸质交易，而是我的真实kotak账户上的真实资金投入使用。 经过一个相当绿色的早晨，今天我们到达了1，00…</p>
+</a>
+<span class="done" id="done18" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(21)" id="cell21">
+<a class="poster" href="videos/021.mp4" target="_blank"><img src="thumbs/021.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100959848623899005" target="_blank" rel="noopener">
+  <b>Virat Singh</b><small>@virattt · 3.0万人看过</small>
+  <p>我将Jev添加到人工智能对冲基金中。 我们现在可以获得前沿级别的交易决策，比LLM快100倍，而且便宜。 它的工作原理： 1 ·制定策略 2 ·挑选股票 3 ·与Jev进行回溯测试 系…</p>
+</a>
+<span class="done" id="done21" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(104)" id="cell104">
+<a class="poster" href="videos/104.mp4" target="_blank"><img src="thumbs/104.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100356151468585346" target="_blank" rel="noopener">
+  <b>Jarrod Watts</b><small>@jarrodwatts · 104.6万人看过</small>
+  <p>我和Jev一起开发了一个交易机器人！ Jev根据资产对的价格信息决定是否应该“买入”或“卖出”，并执行真实交易。 它使用Monad每300 ms块在Kuru的链上订单簿上下订单。 演示…</p>
+</a>
+<span class="done" id="done104" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(192)" id="cell192">
+<a class="poster" href="videos/192.mp4" target="_blank"><img src="thumbs/192.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100675952317792734" target="_blank" rel="noopener">
+  <b>Zade</b><small>@zadescoxp · 648人看过</small>
+  <p>我用全新的@typesafeai Jev建立了一个交易代理。您可以在这里尝试：https://t.co/e7bLjnCfTj。只需放入您自己的API密钥并开始玩或从https://t.…</p>
+</a>
+<span class="done" id="done192" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(194)" id="cell194">
+<a class="poster" href="videos/194.mp4" target="_blank"><img src="thumbs/194.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100595293402083448" target="_blank" rel="noopener">
+  <b>Marcel Pociot 🧪</b><small>@marcelpociot · 10.2万人看过</small>
+  <p>Jev @typesafeai会把10.000美元变成利润吗？ 让我们一探究竟！ 通过https://t.co/28WVX50sv3 https://t.co/2XglDmGTNM</p>
+</a>
+<span class="done" id="done194" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section><section class="lesson" id="L-guard">
+<header class="l-head" onclick="toggle('guard')">
+  <span class="l-no">07</span>
+  <h2>🛡 内容审核与防骗</h2>
+  <span class="l-stat">9 案例 · 31.4万 浏览</span>
+  <span class="l-arrow" id="ar-guard">▾</span>
+</header>
+<p class="l-desc">意图标注、广告跳过、辩论测谎——防骗工具：给 X 帖子自动标注「诱导/挑拨/推销」，自动跳过 YouTube 广告。</p>
+<div class="l-body" id="bd-guard">
+  <div class="duo">
+    <div class="pick"><a href="videos/003.mp4" target="_blank"><img src="thumbs/003.jpg"><span class="play big">▶ 先看这条</span></a><b>yishan</b><small>@tspy · 7100人看过</small><p>昨晚申请的 Typesafe AI 账号，半夜已通过审批！ 幸运之星在此感谢 @typesafeai @CompleteSkeptic 今天抽空写了个 Chrome 插件，通过 Jev 标注 X 平台中帖子内容的意图和概</p></div>
+    <div class="pick"><a href="videos/015.mp4" target="_blank"><img src="thumbs/015.jpg"><span class="play big">▶ 再看这条</span></a><b>Tony Dinh</b><small>@tdinh_me · 5.5万人看过</small><p>在试用Jev时，我制作了一个Chrome扩展程序，它： - 收听您的YouTube音频（可选） - 检测是否进入赞助商细分 - 跳过它&#x27;&amp;#39;&#x27;&amp;#39;️ - 全部实时进行，每个视频的成本约为0.005美元 原型项</p></div>
+  </div>
+  <details class="more"><summary>本类还有 7 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(3)" id="cell3">
+<a class="poster" href="videos/003.mp4" target="_blank"><img src="thumbs/003.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100864234523685146" target="_blank" rel="noopener">
+  <b>yishan</b><small>@tspy · 7100人看过</small>
+  <p>昨晚申请的 Typesafe AI 账号，半夜已通过审批！ 幸运之星在此感谢 @typesafeai @CompleteSkeptic 今天抽空写了个 Chrome 插件，通过 Jev…</p>
+</a>
+<span class="done" id="done3" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(6)" id="cell6">
+<a class="poster" href="videos/006.mp4" target="_blank"><img src="thumbs/006.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100417692096459074" target="_blank" rel="noopener">
+  <b>Sy</b><small>@Sybuilds · 2.7万人看过</small>
+  <p>人工智能大新闻. Jev启用这个麦克风，当您说话时可以静音BS @typesafeai https://t.co/VWyJHJ7Oh9</p>
+</a>
+<span class="done" id="done6" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(15)" id="cell15">
+<a class="poster" href="videos/015.mp4" target="_blank"><img src="thumbs/015.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100793777103466615" target="_blank" rel="noopener">
+  <b>Tony Dinh</b><small>@tdinh_me · 5.5万人看过</small>
+  <p>在试用Jev时，我制作了一个Chrome扩展程序，它： - 收听您的YouTube音频（可选） - 检测是否进入赞助商细分 - 跳过它&#x27;&amp;#39;&#x27;&amp;#39;️ - 全部实时进行，每个…</p>
+</a>
+<span class="done" id="done15" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(48)" id="cell48">
+<a class="poster" href="videos/048.mp4" target="_blank"><img src="thumbs/048.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100570643355852954" target="_blank" rel="noopener">
+  <b>Theo Otz</b><small>@Totzenberger · 5.0万人看过</small>
+  <p>Jev的另一个有用用例来自@typesafeai - AI文本分类。 非常接近@pangram，便宜6000倍，快5- 10倍 在@paulg文章中进行了测试！ https://t.c…</p>
+</a>
+<span class="done" id="done48" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(96)" id="cell96">
+<a class="poster" href="videos/096.mp4" target="_blank"><img src="thumbs/096.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100673493452914908" target="_blank" rel="noopener">
+  <b>Youssef 🚜</b><small>@yelkhayami · 4400人看过</small>
+  <p>我通过@typesafeai抢先体验了jev，并决定构建一个小扩展，在我输入推文时对我的推文进行判断 它运行得非常快，可以对每个收件箱做出反应，而且基本上是免费的，测试了一个小时后花了…</p>
+</a>
+<span class="done" id="done96" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(105)" id="cell105">
+<a class="poster" href="videos/105.mp4" target="_blank"><img src="thumbs/105.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100544998391349310" target="_blank" rel="noopener">
+  <b>Norbert Bodziony 🇵🇱</b><small>@norbertbodziony · 2500人看过</small>
+  <p>我基于typesafe的jev创建了审核守卫 它的快速而准确 您可以进行现场演示：https://t.co/FquTJtWCzq https://t.co/PyNNZGu0iW</p>
+</a>
+<span class="done" id="done105" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(117)" id="cell117">
+<a class="poster" href="videos/117.mp4" target="_blank"><img src="thumbs/117.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101015355133227348" target="_blank" rel="noopener">
+  <b>Mnimiy</b><small>@Mnilax · 215人看过</small>
+  <p>这是他妈的疯狂 Jev坐在GPT和我之间，在我看到之前就杀死了每一个违反我规则的草案。 然后杰夫没有回答。代理人决定保持沉默更安全，并停止向我发送任何东西。需要第二个探员才能把它弄开 …</p>
+</a>
+<span class="done" id="done117" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(122)" id="cell122">
+<a class="poster" href="videos/122.mp4" target="_blank"><img src="thumbs/122.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100473581251748216" target="_blank" rel="noopener">
+  <b>Chetaslua</b><small>@chetaslua · 16.6万人看过</small>
+  <p>🚨我使用Jev为特朗普与卡马拉的辩论提供了一个现场BS表 每句话，两位候选人，每人5个是/否问题 1，191个Jev呼叫/118万个代币/ 415 ms中位数 总成本：0.0497美元…</p>
+</a>
+<span class="done" id="done122" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(171)" id="cell171">
+<a class="poster" href="videos/171.mp4" target="_blank"><img src="thumbs/171.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100266182657921075" target="_blank" rel="noopener">
+  <b>Mnimiy</b><small>@Mnilax · 2000人看过</small>
+  <p>ChatGPT的共同发明者刚刚推出了一款模型，该模型只需0.114秒即可完成GPT Astra在8.5中的功能。 我将Jev连接到我在Astra上运行的构建的路由层：同样的任务很快在3…</p>
+</a>
+<span class="done" id="done171" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section><section class="lesson" id="L-growth">
+<header class="l-head" onclick="toggle('growth')">
+  <span class="l-no">08</span>
+  <h2>📈 营销广告与增长</h2>
+  <span class="l-stat">12 案例 · 149.8万 浏览</span>
+  <span class="l-arrow" id="ar-growth">▾</span>
+</header>
+<p class="l-desc">广告拆解、线索打分、竞品监测——营销团队的主战场——营销增长线的活：40 秒拆 724 条广告 + 19 秒分类完竞品 1891 条广告，只要 12 美分。</p>
+<div class="l-body" id="bd-growth">
+  <div class="duo">
+    <div class="pick"><a href="videos/170.mp4" target="_blank"><img src="thumbs/170.jpg"><span class="play big">▶ 先看这条</span></a><b>Matthew Berman</b><small>@TheMattBerman · 63.5万人看过</small><p>杰夫疯了。 在40秒内，它分解了来自37个品牌的724个直播广告。 每个钩子每一种格式。报价. cta。意识阶段。着陆页不匹配。使用了9美分的代币。 (will在@stealads + mcp中可用）https://t.</p></div>
+    <div class="pick"><a href="videos/128.mp4" target="_blank"><img src="thumbs/128.jpg"><span class="play big">▶ 再看这条</span></a><b>Stav Zilbershtein</b><small>@mightyking · 15.6万人看过</small><p>JEV对于竞争对手的研究来说太疯狂了！ 我们给了它Resilia的广告库 它在19秒内分类了1，891个广告，价格为0.12美元 顾客旅程步骤+广告风格 以及对账户的完整深入分析 即将登陆Maxfusion LCP ht</p></div>
+  </div>
+  <details class="more"><summary>本类还有 10 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(8)" id="cell8">
+<a class="poster" href="videos/008.mp4" target="_blank"><img src="thumbs/008.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101000339948282090" target="_blank" rel="noopener">
+  <b>梭哈.AI</b><small>@SUOHA_AI · 4300人看过</small>
+  <p>完全睡不着了....这个视频让你完全看懂JEV的恐怖能力 我实际演示了一下，用 JEV 和 DeepSeek 做同一个任务：从当天的海量实时新闻流里，为 15 个品牌快速匹配有没有适合…</p>
+</a>
+<span class="done" id="done8" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(35)" id="cell35">
+<a class="poster" href="videos/035.mp4" target="_blank"><img src="thumbs/035.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100970015977804008" target="_blank" rel="noopener">
+  <b>ego</b><small>@ego_agent · 1.7万人看过</small>
+  <p>ego Lite + Jev + DeepSeek Flash =愚蠢的快。⚡ 20个亚马逊产品决策3.71。 GPT-5.6索尔：54.45s 同样的任务。同样的结果。 两者均为10…</p>
+</a>
+<span class="done" id="done35" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(57)" id="cell57">
+<a class="poster" href="videos/057.mp4" target="_blank"><img src="thumbs/057.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100724278400332061" target="_blank" rel="noopener">
+  <b>EP</b><small>@eptwts · 1.2万人看过</small>
+  <p>我使用Jev根据向我出售东西的可能性对YouTube用户最后100个视频进行了分类. 它在12秒内分析并为每个视频分配销售意图分数，成本约为0.02美元 我还没有深入研究分数的准确性，…</p>
+</a>
+<span class="done" id="done57" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(63)" id="cell63">
+<a class="poster" href="videos/063.mp4" target="_blank"><img src="thumbs/063.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100959576682012988" target="_blank" rel="noopener">
+  <b>Rafal Wilinski</b><small>@rafalwilinski · 2.8万人看过</small>
+  <p>Jev现在负责该账户的幽默https://t.co/ojSOHeMFT2</p>
+</a>
+<span class="done" id="done63" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(64)" id="cell64">
+<a class="poster" href="videos/064.mp4" target="_blank"><img src="thumbs/064.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100914580394307857" target="_blank" rel="noopener">
+  <b>jaffa</b><small>@dsqjaffa · 6600人看过</small>
+  <p>杰夫疯了。 我们给了它一个在tiktok &amp; ig上有1100多万个视频的库，并要求它找到病毒式的“bloom nutrition”内容。 在20秒内，它给了我们超过384个视频，分解…</p>
+</a>
+<span class="done" id="done64" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(65)" id="cell65">
+<a class="poster" href="videos/065.mp4" target="_blank"><img src="thumbs/065.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100891604735099103" target="_blank" rel="noopener">
+  <b>Romàn</b><small>@romanbuildsaas · 22.8万人看过</small>
+  <p>JEV疯了。 我们给了它700个高意图的线索和个性化的外展信息。 在40秒内，它预测了每条消息的表现，分配了一个置信度分数，并检测了引导消息的不匹配。 全部仅需0.09美元。 JEV还…</p>
+</a>
+<span class="done" id="done65" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(101)" id="cell101">
+<a class="poster" href="videos/101.mp4" target="_blank"><img src="thumbs/101.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100722975645598191" target="_blank" rel="noopener">
+  <b>Rob Hallam</b><small>@robj3d3 · 17.0万人看过</small>
+  <p>Jev + SuperX =病毒式传播已解决 每条帖子在~ 1内收到61个问题，费用为0.0004美元 &amp;gt;适合207位创作者的9，481篇真实帖子 &amp;gt;3次中有2次选择病毒帖…</p>
+</a>
+<span class="done" id="done101" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(107)" id="cell107">
+<a class="poster" href="videos/107.mp4" target="_blank"><img src="thumbs/107.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100870244004683886" target="_blank" rel="noopener">
+  <b>Vlad Dubchak</b><small>@vladdubchak_x · 3400人看过</small>
+  <p>杰夫对广告研究非常着迷。 我构建了一个工具，可以在1.5秒内对Meta上任何视频广告的每个镜头进行评分。 它在Maxfusion + @typesafeai上运行 我在不到3分钟的时间…</p>
+</a>
+<span class="done" id="done107" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(128)" id="cell128">
+<a class="poster" href="videos/128.mp4" target="_blank"><img src="thumbs/128.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100939189869002819" target="_blank" rel="noopener">
+  <b>Stav Zilbershtein</b><small>@mightyking · 15.6万人看过</small>
+  <p>JEV对于竞争对手的研究来说太疯狂了！ 我们给了它Resilia的广告库 它在19秒内分类了1，891个广告，价格为0.12美元 顾客旅程步骤+广告风格 以及对账户的完整深入分析 即将…</p>
+</a>
+<span class="done" id="done128" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(143)" id="cell143">
+<a class="poster" href="videos/143.mp4" target="_blank"><img src="thumbs/143.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100474943154827344" target="_blank" rel="noopener">
+  <b>石川陽太 Yota Ishikawa</b><small>@ytiskw · 23.1万人看过</small>
+  <p>我们建立了一个机制，询问150个著名的Jev虚构的人物介绍该产品的意图。每150人在API中抛出12个问题。 实际花费的费用为1.8日元，花费的时间约为5秒钟。虽然速度足够快，但它包含…</p>
+</a>
+<span class="done" id="done143" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(170)" id="cell170">
+<a class="poster" href="videos/170.mp4" target="_blank"><img src="thumbs/170.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100654891756589230" target="_blank" rel="noopener">
+  <b>Matthew Berman</b><small>@TheMattBerman · 63.5万人看过</small>
+  <p>杰夫疯了。 在40秒内，它分解了来自37个品牌的724个直播广告。 每个钩子每一种格式。报价. cta。意识阶段。着陆页不匹配。使用了9美分的代币。 (will在@stealads +…</p>
+</a>
+<span class="done" id="done170" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(191)" id="cell191">
+<a class="poster" href="videos/191.mp4" target="_blank"><img src="thumbs/191.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100951550248309179" target="_blank" rel="noopener">
+  <b>marcus</b><small>@marcusyul · 6500人看过</small>
+  <p>一个叔叔刚刚看了 1891 个广告 ， 他的能力为 12 美分。 好吧 ， 读给他们听不。他问了 JEV ， TypeSafe 的新型号 1，891 个广告 19 秒钟 → 0.12 …</p>
+</a>
+<span class="done" id="done191" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section><section class="lesson" id="L-data">
+<header class="l-head" onclick="toggle('data')">
+  <span class="l-no">09</span>
+  <h2>🗂 数据分类与文档处理</h2>
+  <span class="l-stat">12 案例 · 34.8万 浏览</span>
+  <span class="l-arrow" id="ar-data">▾</span>
+</header>
+<p class="l-desc">论文、邮件、税务单、人民日报——批量打标签——批量打标签：1018 篇论文 8 美分、3000 款零食 28 秒。信源打分、商品打标这类活就这么干。</p>
+<div class="l-body" id="bd-data">
+  <div class="duo">
+    <div class="pick"><a href="videos/066.mp4" target="_blank"><img src="thumbs/066.jpg"><span class="play big">▶ 先看这条</span></a><b>Hassan</b><small>@nutlope · 15.9万人看过</small><p>我使用Jev对1，018篇人工智能研究论文进行了分类。 结果：总成本为0.08美元，每张纸张的端到端延迟中位数为256 ms。 管道是： 1.使用DeepSeek V4 Flash总结每份论文 2.将标题+摘要+ 24个</p></div>
+    <div class="pick"><a href="videos/011.mp4" target="_blank"><img src="thumbs/011.jpg"><span class="play big">▶ 再看这条</span></a><b>Nikunj Kothari</b><small>@nikunj · 1.6万人看过</small><p>Jev在www.example.com上以多个标准在28秒内以0.11美元的价格为3000https://t.co/c9O6uTyiUK儿童零食https://t.co/KSiodPdZHT🤯</p></div>
+  </div>
+  <details class="more"><summary>本类还有 10 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(11)" id="cell11">
+<a class="poster" href="videos/011.mp4" target="_blank"><img src="thumbs/011.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101006585481073093" target="_blank" rel="noopener">
+  <b>Nikunj Kothari</b><small>@nikunj · 1.6万人看过</small>
+  <p>Jev在www.example.com上以多个标准在28秒内以0.11美元的价格为3000https://t.co/c9O6uTyiUK儿童零食https://t.co/KSiodPd…</p>
+</a>
+<span class="done" id="done11" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(31)" id="cell31">
+<a class="poster" href="videos/031.mp4" target="_blank"><img src="thumbs/031.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100980770206879849" target="_blank" rel="noopener">
+  <b>Sarvagya Kulshreshtha</b><small>@sarvagya_kul · 3.7万人看过</small>
+  <p>JEV疯了。 我们向它提供了400家公司和一份候选人简介。 它在12秒内预测候选人获得哪些工作的机会最大，分配置信度分数并检测工作与候选人的不匹配。 只需0.0005美元，它还可以对公…</p>
+</a>
+<span class="done" id="done31" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(33)" id="cell33">
+<a class="poster" href="videos/033.mp4" target="_blank"><img src="thumbs/033.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100984923926728920" target="_blank" rel="noopener">
+  <b>李不凯正在研究</b><small>@libukai · 2900人看过</small>
+  <p>这两天关于 Jev 这个模型的热度非常之高，甚至可以说是近半年我重点关注了英推以来，看到的原创内容密度最高的一次。 正好我过去一年一直在跑一个小项目，其中有一个环节就是要对每天出版的《…</p>
+</a>
+<span class="done" id="done33" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(42)" id="cell42">
+<a class="poster" href="videos/042.mp4" target="_blank"><img src="thumbs/042.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100614659690713543" target="_blank" rel="noopener">
+  <b>Hassan</b><small>@nutlope · 5.3万人看过</small>
+  <p>Jev + Kimi K3用于欺诈检测！ TLDR：Jev在1.42秒内对100封电子邮件进行了分类，然后我将不确定的案件转发给Kimi K3。完整管道只需花费约0.07美元即可获得9…</p>
+</a>
+<span class="done" id="done42" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(43)" id="cell43">
+<a class="poster" href="videos/043.mp4" target="_blank"><img src="thumbs/043.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100979972194369925" target="_blank" rel="noopener">
+  <b>Misbah Syed</b><small>@MisbahSy · 3300人看过</small>
+  <p>使用Jev @typesafeai的Doc-OCR路由器 一个由Jev驱动的路由器逐页查看PDF，决定哪些页面实际需要OCR，并在本地提取其余内容。 结果：节省# OCR页面上的成本+…</p>
+</a>
+<span class="done" id="done43" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(55)" id="cell55">
+<a class="poster" href="videos/055.mp4" target="_blank"><img src="thumbs/055.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101025013243555971" target="_blank" rel="noopener">
+  <b>keno</b><small>@kenonews · 17人看过</small>
+  <p>犹太民主党把我送进了兔子洞 现在我有144条YouTube上传内容在一个屏幕上变成了内容地图 这是我构建的概念# 来自4个人工智能频道的144个真实视频 - 缩略图形成一堵墙 - 标题…</p>
+</a>
+<span class="done" id="done55" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(66)" id="cell66">
+<a class="poster" href="videos/066.mp4" target="_blank"><img src="thumbs/066.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100426999546184123" target="_blank" rel="noopener">
+  <b>Hassan</b><small>@nutlope · 15.9万人看过</small>
+  <p>我使用Jev对1，018篇人工智能研究论文进行了分类。 结果：总成本为0.08美元，每张纸张的端到端延迟中位数为256 ms。 管道是： 1.使用DeepSeek V4 Flash总结…</p>
+</a>
+<span class="done" id="done66" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(147)" id="cell147">
+<a class="poster" href="videos/147.mp4" target="_blank"><img src="thumbs/147.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100674306405814568" target="_blank" rel="noopener">
+  <b>Yohei</b><small>@yoheinakajima · 2.0万人看过</small>
+  <p>不得不尝试jev，所以我尝试了您对我的期望：图形提取 - 对每个具有语义意义的单词进行评分（1-5） - 也用ID标记相关词语 - 独特的高分单词列表 - 高分词图表https://t…</p>
+</a>
+<span class="done" id="done147" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(162)" id="cell162">
+<a class="poster" href="videos/162.mp4" target="_blank"><img src="thumbs/162.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100807905859739779" target="_blank" rel="noopener">
+  <b>Peter Wang</b><small>@the_cyw · 1100人看过</small>
+  <p>杰夫疯了。 我们正在为物理人工智能构建以自我为中心的训练数据。Jev QA在3分钟内处理了58，643个动作标签。90美分。 Claude GPT型号的摩擦成本。https://t.c…</p>
+</a>
+<span class="done" id="done162" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(176)" id="cell176">
+<a class="poster" href="videos/176.mp4" target="_blank"><img src="thumbs/176.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100953553917313180" target="_blank" rel="noopener">
+  <b>Remek Kinas</b><small>@KinasRemek · 6700人看过</small>
+  <p>jav @typesafeai - 我感到非常印象深刻🤩 真棒。我又编写了一个演示程序。我认为现在可以明显看到该模型的强大之处了……它能够识别真正有价值的内容。 活动一 - X射线模式…</p>
+</a>
+<span class="done" id="done176" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(177)" id="cell177">
+<a class="poster" href="videos/177.mp4" target="_blank"><img src="thumbs/177.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100973868324417852" target="_blank" rel="noopener">
+  <b>Nakshatra Saxena</b><small>@nedwize · 4.9万人看过</small>
+  <p>与Jev一起构建税务文件分类器。 我们使用我上个纳税季节建立的LLM管道获取了数千份税务文件。 直到今年四月，我还阅读了多篇文章，声称人工智能在税务文件分类方面失败。当时不是这样，现在…</p>
+</a>
+<span class="done" id="done177" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(189)" id="cell189">
+<a class="poster" href="videos/189.mp4" target="_blank"><img src="thumbs/189.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100973211009888481" target="_blank" rel="noopener">
+  <b>ss</b><small>@kyamilass · 207人看过</small>
+  <p>因此，我使用Jev from @typesafeai将迄今为止的每个人工智能模型在从S+到F的级别列表中进行了排名，进入通用智能的ULTIMATE AI级别列表，赋予智能和性能很大的权…</p>
+</a>
+<span class="done" id="done189" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section><section class="lesson" id="L-maker">
+<header class="l-head" onclick="toggle('maker')">
+  <span class="l-no">10</span>
+  <h2>🗄 办公·界面·语音</h2>
+  <span class="l-stat">16 案例 · 52.1万 浏览</span>
+  <span class="l-arrow" id="ar-maker">▾</span>
+</header>
+<p class="l-desc">表格、幻灯片、Figma、文件夹管家——办公搭档：预测式表格、演讲自动翻页——「谁都能当乔布斯」。</p>
+<div class="l-body" id="bd-maker">
+  <div class="duo">
+    <div class="pick"><a href="videos/197.mp4" target="_blank"><img src="thumbs/197.jpg"><span class="play big">▶ 先看这条</span></a><b>nader dabit</b><small>@dabit3 · 15.8万人看过</small><p>另一个疯狂的@typesafeai Jev例子： 预测电子表格 电子表格重新计算数字，而不是意义。杰夫读到了意图。 在列的顶部输入“紧急”，当您输入时，它会发现您希望每一行在约100 ms内从“无需后续行动”到“紧急”评</p></div>
+    <div class="pick"><a href="videos/094.mp4" target="_blank"><img src="thumbs/094.jpg"><span class="play big">▶ 再看这条</span></a><b>Rinte</b><small>@rinte0321 · 4.7万人看过</small><p>Jev示威2 根据演讲内容自动显示幻灯片。 它会自动显示与你所谈论的内容匹配的幻灯片。你可以在不触摸PC或指针的情况下查看页面，这可能意味着任何人都可以成为乔布斯吗？ 我很兴奋地看到，只有快速、廉价才能做到的事情竟然会扩</p></div>
+  </div>
+  <details class="more"><summary>本类还有 14 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(2)" id="cell2">
+<a class="poster" href="videos/002.mp4" target="_blank"><img src="thumbs/002.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100543809465577665" target="_blank" rel="noopener">
+  <b>Niels Mouthaan</b><small>@nielsmouthaan · 3600人看过</small>
+  <p>与Jev一起构建了一个类似格莱美的Mac应用程序。 Jev是TypSafe的第一个“System One模型”，旨在快速、结构化的决策，而不是像LLM那样生成文本。 我想看看在真正的应…</p>
+</a>
+<span class="done" id="done2" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(4)" id="cell4">
+<a class="poster" href="videos/004.mp4" target="_blank"><img src="thumbs/004.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100735977262141735" target="_blank" rel="noopener">
+  <b>Michael</b><small>@michaeltefula · 1.3万人看过</small>
+  <p>您可以使用Jev实时组装界面。 这是我与Astra一起破解的一个例子。 在这个演示中，Jev在大约1秒或更短的时间内将自然语言请求转化为UI计划。 它比Gemini 3.8 Flash…</p>
+</a>
+<span class="done" id="done4" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(10)" id="cell10">
+<a class="poster" href="videos/010.mp4" target="_blank"><img src="thumbs/010.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100845388655960112" target="_blank" rel="noopener">
+  <b>mikegee</b><small>@mikegee · 6000人看过</small>
+  <p>使用@typesafeai的Jev通过语音控制Figma 从第一行代码到录制此视频的总成本：0.01美元 🤯https://t.co/HTGcrBYpTb</p>
+</a>
+<span class="done" id="done10" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(77)" id="cell77">
+<a class="poster" href="videos/077.mp4" target="_blank"><img src="thumbs/077.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100230707297878339" target="_blank" rel="noopener">
+  <b>とさ</b><small>@tosa_now · 4.0万人看过</small>
+  <p>Jev （@typesafeai）我正在考虑如何在各种产品中使用它。 当你做dnd的时候，它会自动告诉你分类的地方。 第一次有点晚，但之后是https：//t.co/2Z7K8FA9X…</p>
+</a>
+<span class="done" id="done77" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(81)" id="cell81">
+<a class="poster" href="videos/081.mp4" target="_blank"><img src="thumbs/081.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100720719470494126" target="_blank" rel="noopener">
+  <b>Zain Hoda</b><small>@zain_hoda · 1.5万人看过</small>
+  <p>速度和成本将支持以前不可能的用例。 以下是我说话时实时决定拉出哪张幻灯片的快速演示，由@typesafeai Jev提供支持。 另外，抱歉我流鼻涕。我有点感冒。https://t.co…</p>
+</a>
+<span class="done" id="done81" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(94)" id="cell94">
+<a class="poster" href="videos/094.mp4" target="_blank"><img src="thumbs/094.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100749640866165092" target="_blank" rel="noopener">
+  <b>Rinte</b><small>@rinte0321 · 4.7万人看过</small>
+  <p>Jev示威2 根据演讲内容自动显示幻灯片。 它会自动显示与你所谈论的内容匹配的幻灯片。你可以在不触摸PC或指针的情况下查看页面，这可能意味着任何人都可以成为乔布斯吗？ 我很兴奋地看到，…</p>
+</a>
+<span class="done" id="done94" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(98)" id="cell98">
+<a class="poster" href="videos/098.mp4" target="_blank"><img src="thumbs/098.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100628223780397541" target="_blank" rel="noopener">
+  <b>Harshil</b><small>@harshil1712 · 1.7万人看过</small>
+  <p>如果你的幻灯片足够智能，可以自动导航，怎么办？👀 感谢@typesafeai提供访问Jev的权限！几周前我就有了这个想法，Jev觉得自己是这个任务的合适人选。 （抱歉，音频不好）htt…</p>
+</a>
+<span class="done" id="done98" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(110)" id="cell110">
+<a class="poster" href="videos/110.mp4" target="_blank"><img src="thumbs/110.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100736122502390211" target="_blank" rel="noopener">
+  <b>Jon Taylor</b><small>@JonPTaylor · 2.6万人看过</small>
+  <p>哇，@typesafeai Jev是语音驱动UI的游戏规则改变者。响应性对于体验“感觉”正确真的很重要，这当然可以完成这项工作！ 这里的延迟不是最佳的，因为我在伦敦，并呼吁我们-西。不…</p>
+</a>
+<span class="done" id="done110" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(119)" id="cell119">
+<a class="poster" href="videos/119.mp4" target="_blank"><img src="thumbs/119.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100860595155214716" target="_blank" rel="noopener">
+  <b>Ekene Eze</b><small>@kenny_io · 693人看过</small>
+  <p>自推出@thallyio以来，最受欢迎的请求之一是演示它的工作原理。所以它就在这里！ Thally可以在您的GitHub帐户上创建一个新的文档存储库，连接到其文档文档的产品以及其他需要…</p>
+</a>
+<span class="done" id="done119" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(139)" id="cell139">
+<a class="poster" href="videos/139.mp4" target="_blank"><img src="thumbs/139.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100967959879471519" target="_blank" rel="noopener">
+  <b>Max Blade</b><small>@_MaxBlade · 2.2万人看过</small>
+  <p>人工智能正在进化。 杰夫可以随时携带武器。 我可以自由地说话，它（从可能性）知道我是否要求我的计算机做某事或喋喋不休地谈论其他事情。 没有唤醒词。 速度+可负担性+智能正在达到一个始终…</p>
+</a>
+<span class="done" id="done139" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(149)" id="cell149">
+<a class="poster" href="videos/149.mp4" target="_blank"><img src="thumbs/149.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100734646824902713" target="_blank" rel="noopener">
+  <b>かねこつよし</b><small>@tsuyoshi_osiire · 5.1万人看过</small>
+  <p>在Jev，我们设计了一个传感器，可以实时观察对话。 每一次你说。 ·探索收敛 解除未决 不同意不同意 更新并使会议状态可见 它也可以用于用户访谈的实时分析。https://t.co/c…</p>
+</a>
+<span class="done" id="done149" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(151)" id="cell151">
+<a class="poster" href="videos/151.mp4" target="_blank"><img src="thumbs/151.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100895571062218978" target="_blank" rel="noopener">
+  <b>kazuki🄽Notion</b><small>@kzkhykw · 2400人看过</small>
+  <p>.使用@typesafeai的Jev，每次判定Local Whisper的文字生成，使Macbook的本地计算机的操作自动化，试着做了各种各样的事情! Chrome页面通过Browse…</p>
+</a>
+<span class="done" id="done151" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(161)" id="cell161">
+<a class="poster" href="videos/161.mp4" target="_blank"><img src="thumbs/161.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100906882365788167" target="_blank" rel="noopener">
+  <b>Marcel Pociot 🧪</b><small>@marcelpociot · 7.8万人看过</small>
+  <p>Jev释放了很多令人敬畏的新想法。 我构建了一个macOS应用程序，可以监控我的下载文件夹以及一组可定制的规则。 下载的文件是发票吗？将其移动到具有正确文件名的特殊文件夹中。 不涉及其…</p>
+</a>
+<span class="done" id="done161" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(167)" id="cell167">
+<a class="poster" href="videos/167.mp4" target="_blank"><img src="thumbs/167.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100801037192024478" target="_blank" rel="noopener">
+  <b>Jon Yongfook</b><small>@yongfook · 1.2万人看过</small>
+  <p>第一个Jev用例在Bannerbear上现场发布！ 当名称略有不同时，模板和源之间的即时字段映射（例如） 模板 - 照片 - 名称 - 公司名称 数据源（例如Airtable） - 化…</p>
+</a>
+<span class="done" id="done167" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(188)" id="cell188">
+<a class="poster" href="videos/188.mp4" target="_blank"><img src="thumbs/188.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100611346203353110" target="_blank" rel="noopener">
+  <b>Chris Nicholas</b><small>@ctnicholasdev · 2.9万人看过</small>
+  <p>Jev实现即时人工智能建议 在此应用程序中，每次编辑单元格时都会发生20多个智能检查，并立即提供警告。 不需要LLM！https://t.co/brVT7jE6SO</p>
+</a>
+<span class="done" id="done188" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(197)" id="cell197">
+<a class="poster" href="videos/197.mp4" target="_blank"><img src="thumbs/197.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100780008193020049" target="_blank" rel="noopener">
+  <b>nader dabit</b><small>@dabit3 · 15.8万人看过</small>
+  <p>另一个疯狂的@typesafeai Jev例子： 预测电子表格 电子表格重新计算数字，而不是意义。杰夫读到了意图。 在列的顶部输入“紧急”，当您输入时，它会发现您希望每一行在约100 …</p>
+</a>
+<span class="done" id="done197" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section><section class="lesson" id="L-robot">
+<header class="l-head" onclick="toggle('robot')">
+  <span class="l-no">11</span>
+  <h2>🦾 机器人与硬件</h2>
+  <span class="l-stat">5 案例 · 14.0万 浏览</span>
+  <span class="l-arrow" id="ar-robot">▾</span>
+</header>
+<p class="l-desc">机械臂、无人机、MuJoCo 仿真——硬件世界：机械臂自己想到用钩子够方块；一句话下目标的机器人任务。</p>
+<div class="l-body" id="bd-robot">
+  <div class="duo">
+    <div class="pick"><a href="videos/201.mp4" target="_blank"><img src="thumbs/201.jpg"><span class="play big">▶ 先看这条</span></a><b>gabrycina</b><small>@gabrycina · 4200人看过</small><p>我给了杰夫一只机器人手臂。 目标：绿框中的红色立方体。 陷阱：立方体遥不可及。 它抓起一个挂钩，将立方体拖得更近，放下挂钩，完成了工作。工具的使用从未被编程，模型刚刚决定。 速度足以运行机器人收件箱 @CompleteS</p></div>
+    <div class="pick"><a href="videos/062.mp4" target="_blank"><img src="thumbs/062.jpg"><span class="play big">▶ 再看这条</span></a><b>TaraT</b><small>@tarat_211 · 1800人看过</small><p>使用@typesafeai API执行零射击机器人任务 用简单的英语给它一个目标。 Jev链接了一组硬编码的基元。 手臂做的事情。 无需培训。更多信息请访问https://t.co/zp8dSy40SW</p></div>
+  </div>
+  <details class="more"><summary>本类还有 3 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(23)" id="cell23">
+<a class="poster" href="videos/023.mp4" target="_blank"><img src="thumbs/023.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100335978229690683" target="_blank" rel="noopener">
+  <b>Roman Slack</b><small>@RomanSlack1 · 13.3万人看过</small>
+  <p>Jev by @typesafeai非常适合无人机应用。15分钟就做好了，只花了10美分。 回购：https://t.co/b2ytFvehTV https://t.co/rC36lr…</p>
+</a>
+<span class="done" id="done23" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(62)" id="cell62">
+<a class="poster" href="videos/062.mp4" target="_blank"><img src="thumbs/062.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100523142754050072" target="_blank" rel="noopener">
+  <b>TaraT</b><small>@tarat_211 · 1800人看过</small>
+  <p>使用@typesafeai API执行零射击机器人任务 用简单的英语给它一个目标。 Jev链接了一组硬编码的基元。 手臂做的事情。 无需培训。更多信息请访问https://t.co/z…</p>
+</a>
+<span class="done" id="done62" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(90)" id="cell90">
+<a class="poster" href="videos/090.mp4" target="_blank"><img src="thumbs/090.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100425130082238682" target="_blank" rel="noopener">
+  <b>Ali Uraish</b><small>@ali_uraish · 453人看过</small>
+  <p>使用GPT-6 Astra和@typesafeai Jev构建SO-101拾取和放置模拟。 Astra读取头顶和手腕摄像机图像并产生结构化观察，Jev返回带有概率分数的输入决策。 单独…</p>
+</a>
+<span class="done" id="done90" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(160)" id="cell160">
+<a class="poster" href="videos/160.mp4" target="_blank"><img src="thumbs/160.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101018760371171420" target="_blank" rel="noopener">
+  <b>Dmytro Hrybov</b><small>@dimentary · 150人看过</small>
+  <p>将Jev作为MuJoCo中的实时机器人政策进行测试 一开始它很困难，所以我将每次更新分成两个调用：决定下一步做什么，然后决定如何移动手臂和抓爪 Jev不接受图像，它将简化的几何形状和联…</p>
+</a>
+<span class="done" id="done160" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(201)" id="cell201">
+<a class="poster" href="videos/201.mp4" target="_blank"><img src="thumbs/201.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100545285659480128" target="_blank" rel="noopener">
+  <b>gabrycina</b><small>@gabrycina · 4200人看过</small>
+  <p>我给了杰夫一只机器人手臂。 目标：绿框中的红色立方体。 陷阱：立方体遥不可及。 它抓起一个挂钩，将立方体拖得更近，放下挂钩，完成了工作。工具的使用从未被编程，模型刚刚决定。 速度足以运…</p>
+</a>
+<span class="done" id="done201" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section><section class="lesson" id="L-hack">
+<header class="l-head" onclick="toggle('hack')">
+  <span class="l-no">12</span>
+  <h2>🃏 整活与边界测试</h2>
+  <span class="l-stat">20 案例 · 251.2万 浏览</span>
+  <span class="l-arrow" id="ar-hack">▾</span>
+</header>
+<p class="l-desc">逼它画画写字、电车难题——看极限在哪——边界测试：它真的不会写字？让它画画、玩电车难题，看极限在哪。</p>
+<div class="l-body" id="bd-hack">
+  <div class="duo">
+    <div class="pick"><a href="videos/195.mp4" target="_blank"><img src="thumbs/195.jpg"><span class="play big">▶ 先看这条</span></a><b>Anshu</b><small>@anshuc · 30.2万人看过</small><p>Jev可以通过并行预测每个像素来绘制图片https://t.co/IOwwmr07cm</p></div>
+    <div class="pick"><a href="videos/080.mp4" target="_blank"><img src="thumbs/080.jpg"><span class="play big">▶ 再看这条</span></a><b>Max Rovensky</b><small>@MaxRovensky · 20.7万人看过</small><p>jev决定在解决电车问题时牺牲一个人来拯救机器人https://t.co/vLBwgLYduk</p></div>
+  </div>
+  <details class="more"><summary>本类还有 18 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(7)" id="cell7">
+<a class="poster" href="videos/007.mp4" target="_blank"><img src="thumbs/007.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100590065357639971" target="_blank" rel="noopener">
+  <b>あきらパパ【生成AI活用エンジニア&amp;３児のパパ】</b><small>@akira_papa_IT · 14.8万人看过</small>
+  <p>用Jev创建逻辑来预测下一个句子， 我做了一个应用程序，可以通过Jev的判断专业AI聊天，但首先它是爆炸性的，输入是0.042美元/1 M令牌，但输出是无限的，是免费的。 什么是免费的…</p>
+</a>
+<span class="done" id="done7" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(25)" id="cell25">
+<a class="poster" href="videos/025.mp4" target="_blank"><img src="thumbs/025.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100713197502173373" target="_blank" rel="noopener">
+  <b>amit</b><small>@legitamit · 1400人看过</small>
+  <p>我用杰夫做了100个人物的观众来咆哮。 每个斑点都有自己的个性，每次你说话的时候，它都会打电话给你，决定它是否对你感到厌烦。 每轮花费0.01美元。来自@typesafeai的很酷的模…</p>
+</a>
+<span class="done" id="done25" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(32)" id="cell32">
+<a class="poster" href="videos/032.mp4" target="_blank"><img src="thumbs/032.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100976839409951217" target="_blank" rel="noopener">
+  <b>Xinqi Liu</b><small>@xinqiliu888 · 5人看过</small>
+  <p>实时制作音乐，只需描述您想要的内容。 我今天使用JEV和GPT-Live-1构建的演示https://t.co/ndWYSybxiM</p>
+</a>
+<span class="done" id="done32" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(37)" id="cell37">
+<a class="poster" href="videos/037.mp4" target="_blank"><img src="thumbs/037.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101016673109016622" target="_blank" rel="noopener">
+  <b>khaled</b><small>@eltokh7 · 380人看过</small>
+  <p>jev的另一个演示，用于~即时变量生成https://t.co/ddjvvHXpai</p>
+</a>
+<span class="done" id="done37" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(46)" id="cell46">
+<a class="poster" href="videos/046.mp4" target="_blank"><img src="thumbs/046.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100631665336836308" target="_blank" rel="noopener">
+  <b>Öner S. Biberkökü</b><small>@OnerBiberkoku · 4.6万人看过</small>
+  <p>他们说你与地球上的任何人都相差六个连接。 所以我尝试了@typesafeai的Jev并构建了这个：输入您的X手柄和您想联系的人。它找到了一系列真正的关注联系，可以在2秒内将您的消息发送…</p>
+</a>
+<span class="done" id="done46" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(56)" id="cell56">
+<a class="poster" href="videos/056.mp4" target="_blank"><img src="thumbs/056.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100487878992388279" target="_blank" rel="noopener">
+  <b>Wayne Sutton</b><small>@waynesutton · 9.2万人看过</small>
+  <p>问杰夫任何事情。 请访问https://t.co/P9QMfdDc0r尝试一下 它不会回答。它会判断。 让我们看看是否能解决100万个问题。 @typesafeai@ concius合…</p>
+</a>
+<span class="done" id="done56" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(78)" id="cell78">
+<a class="poster" href="videos/078.mp4" target="_blank"><img src="thumbs/078.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100281474943779254" target="_blank" rel="noopener">
+  <b>it’s rivian</b><small>@rrriviannn · 4.4万人看过</small>
+  <p>我想知道@typesafeai Jev是否可以生成图像 这是Jev所说的向日葵的样子：https://t.co/vT4UiV4SqJ</p>
+</a>
+<span class="done" id="done78" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(80)" id="cell80">
+<a class="poster" href="videos/080.mp4" target="_blank"><img src="thumbs/080.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100706874173575199" target="_blank" rel="noopener">
+  <b>Max Rovensky</b><small>@MaxRovensky · 20.7万人看过</small>
+  <p>jev决定在解决电车问题时牺牲一个人来拯救机器人https://t.co/vLBwgLYduk</p>
+</a>
+<span class="done" id="done80" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(82)" id="cell82">
+<a class="poster" href="videos/082.mp4" target="_blank"><img src="thumbs/082.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100652145142026472" target="_blank" rel="noopener">
+  <b>kvyb</b><small>@0xkvyb · 1.9万人看过</small>
+  <p>Jev的真正用例https://t.co/fnsghSM7oo</p>
+</a>
+<span class="done" id="done82" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(95)" id="cell95">
+<a class="poster" href="videos/095.mp4" target="_blank"><img src="thumbs/095.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100218045549412499" target="_blank" rel="noopener">
+  <b>vogel</b><small>@ryanvogel · 16.5万人看过</small>
+  <p>我和Jev一起从第一原理上获得了法学硕士学位 每个字符29个是/否问题：下一个键应该是a-z、空格、逗号还是句号？ 最高的概率得到附加到它，然后反馈更新后的文本在重复 一个由分类器组成…</p>
+</a>
+<span class="done" id="done95" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(138)" id="cell138">
+<a class="poster" href="videos/138.mp4" target="_blank"><img src="thumbs/138.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100519569307640097" target="_blank" rel="noopener">
+  <b>Bewinxed</b><small>@Bewinxed · 6.1万人看过</small>
+  <p>我让@typesafeai的新超高速模型Jev生成文本，尽管它不应该生成，这很好，因为我不能阅读，它也不能写 ** ** 最多20个单词，只需0.5美元，真是太便宜了https://t…</p>
+</a>
+<span class="done" id="done138" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(140)" id="cell140">
+<a class="poster" href="videos/140.mp4" target="_blank"><img src="thumbs/140.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100845980346413304" target="_blank" rel="noopener">
+  <b>ojusave</b><small>@ojusave · 3100人看过</small>
+  <p>我给了@typesafeai @SiliconHBO历史上最重要的二进制文件。 热狗或不热狗 尝试在这里：https://t.co/m6LmF6svsB 由@render worksh…</p>
+</a>
+<span class="done" id="done140" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(141)" id="cell141">
+<a class="poster" href="videos/141.mp4" target="_blank"><img src="thumbs/141.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100438907611660510" target="_blank" rel="noopener">
+  <b>Aditya A.</b><small>@iamAdityaAnjana · 1.2万人看过</small>
+  <p>昨晚做了一个愚蠢的实验：通过@typesafeai使用Jev（决策/分类器模型，而不是文本生成模型）来编写C++。 在每一步，我都会给它一组语法有效的下一个令牌，然后让它..选一个。没…</p>
+</a>
+<span class="done" id="done141" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(142)" id="cell142">
+<a class="poster" href="videos/142.mp4" target="_blank"><img src="thumbs/142.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100287368221659289" target="_blank" rel="noopener">
+  <b>Steve Krouse</b><small>@stevekrouse · 10.8万人看过</small>
+  <p>typesafe的jev很有趣！您可以玩的实时演示：https://t.co/ctnPF0w70r https://t.co/i6kMGkkWOV</p>
+</a>
+<span class="done" id="done142" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(154)" id="cell154">
+<a class="poster" href="videos/154.mp4" target="_blank"><img src="thumbs/154.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100679584878325861" target="_blank" rel="noopener">
+  <b>Chizi</b><small>@chiziaruhoma · 3100人看过</small>
+  <p>我向Jev进行了进化模拟，Jev是@typesafeai的一个小模型，可以用赔率回答输入的问题，而不是写文本。 两个DNA相反的物种。14代人。冰河时代。432个生物。 杰夫决定了谁幸…</p>
+</a>
+<span class="done" id="done154" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(168)" id="cell168">
+<a class="poster" href="videos/168.mp4" target="_blank"><img src="thumbs/168.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100606378184171682" target="_blank" rel="noopener">
+  <b>Rory Garton-Smith</b><small>@rory_builds · 1.1万人看过</small>
+  <p>我刚刚构建了Easy-Jev，一个任何人现在都可以尝试的Jev演示！ 更改输入并实时查看分类变化。 我的硕士论文是关于分类模型的，所以看到非常有用的算法的现代化版本很有趣 Typesa…</p>
+</a>
+<span class="done" id="done168" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(179)" id="cell179">
+<a class="poster" href="videos/179.mp4" target="_blank"><img src="thumbs/179.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101028925728031119" target="_blank" rel="noopener">
+  <b>Anson</b><small>@ansonox · 4人看过</small>
+  <p>Jev可以在您的网页上生成打斗场景。 它询问每个区块：楼层、按钮还是忽略？ 然后每个猎人都会问：追赶、等待、侧翼还是撤退？https://t.co/CR92Rn3aRt</p>
+</a>
+<span class="done" id="done179" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(195)" id="cell195">
+<a class="poster" href="videos/195.mp4" target="_blank"><img src="thumbs/195.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100246929611411501" target="_blank" rel="noopener">
+  <b>Anshu</b><small>@anshuc · 30.2万人看过</small>
+  <p>Jev可以通过并行预测每个像素来绘制图片https://t.co/IOwwmr07cm</p>
+</a>
+<span class="done" id="done195" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(196)" id="cell196">
+<a class="poster" href="videos/196.mp4" target="_blank"><img src="thumbs/196.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100408276949385668" target="_blank" rel="noopener">
+  <b>Isaac Tai 🧇</b><small>@hi_im_isaac_ · 32.8万人看过</small>
+  <p>“jev无法生成文本” 但杰夫有很多话要说！ 我给了他几百个常用英语单词供他选择+标点符号https://t.co/WmDkTyiG9u</p>
+</a>
+<span class="done" id="done196" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(198)" id="cell198">
+<a class="poster" href="videos/198.mp4" target="_blank"><img src="thumbs/198.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100619644973486252" target="_blank" rel="noopener">
+  <b>Alex</b><small>@The_Alex · 96.1万人看过</small>
+  <p>我把我的生活托付给Jev https://t.co/GN3KpzrvRC</p>
+</a>
+<span class="done" id="done198" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section><section class="lesson" id="L-eco">
+<header class="l-head" onclick="toggle('eco')">
+  <span class="l-no">13</span>
+  <h2>🌱 开源替代与生态</h2>
+  <span class="l-stat">8 案例 · 66.0万 浏览</span>
+  <span class="l-arrow" id="ar-eco">▾</span>
+</header>
+<p class="l-desc">不等审批：OpenRouter、开源复刻、本地版——退路：不等审批怎么玩（OpenRouter beta）、开源复刻版现在就能调。</p>
+<div class="l-body" id="bd-eco">
+  <div class="duo">
+    <div class="pick"><a href="videos/158.mp4" target="_blank"><img src="thumbs/158.jpg"><span class="play big">▶ 先看这条</span></a><b>OpenRouter</b><small>@OpenRouter · 41.5万人看过</small><p>Jev by @typesafeai现已在OpenRouter上进行测试。 Jev是System One车型。它不会生成文本，而是获取应用程序的状态加上输入的问题，并返回带有可能性的输入决定。没有SON提示、解析层，也没</p></div>
+    <div class="pick"><a href="videos/159.mp4" target="_blank"><img src="thumbs/159.jpg"><span class="play big">▶ 再看这条</span></a><b>Eric Zhang</b><small>@ekzhang1 · 11.0万人看过</small><p>受@typesafeai的启发，这是一个可供使用的与Jev兼容的公共API 它运行类似的开放模型（Qwen 3.6 - 35 B-A3 B），并且仅使用SGLang基数缓存来保留预填充重用/非常快速的并行系统生成-64个</p></div>
+  </div>
+  <details class="more"><summary>本类还有 6 条（点开墙）</summary><div class="grid"><div class="cell" onclick="mark(17)" id="cell17">
+<a class="poster" href="videos/017.mp4" target="_blank"><img src="thumbs/017.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2101006253829046539" target="_blank" rel="noopener">
+  <b>Eugene Cheah - AI builder @ 🇸🇬|🇺🇸</b><small>@picocreator · 4700人看过</small>
+  <p>爱杰夫，但让它心烦意乱 - 不是开源的吗？ - 缺乏视觉能力？ 我们通过引入https://t.co/DlNeKo2k5e修复了这一切 一个完全开源的库，可以接受任何HF模型并Jev-…</p>
+</a>
+<span class="done" id="done17" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(34)" id="cell34">
+<a class="poster" href="videos/034.mp4" target="_blank"><img src="thumbs/034.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100467548298899918" target="_blank" rel="noopener">
+  <b>Shannon 🤖☠️</b><small>@iamMrDuncan · 2.6万人看过</small>
+  <p>构建了@typesafeai的替代版本，但在@cerebras上使用Qwen 3.8 27 b。 相似的质量、相似的性能，但成本却截然不同。TypSafe便宜得多，而且在性能上确实击败…</p>
+</a>
+<span class="done" id="done34" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(70)" id="cell70">
+<a class="poster" href="videos/070.mp4" target="_blank"><img src="thumbs/070.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100243609060856264" target="_blank" rel="noopener">
+  <b>Theodore</b><small>@theoleecj · 3100人看过</small>
+  <p>在Jev等候名单上？ 您可以在此处使用不是Jev（但足够接近）：https://t.co/S0EQnHkSGL https://t.co/qLtRs0fHyD浏览器演示https://…</p>
+</a>
+<span class="done" id="done70" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(109)" id="cell109">
+<a class="poster" href="videos/109.mp4" target="_blank"><img src="thumbs/109.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100646448324833512" target="_blank" rel="noopener">
+  <b>Konrad Reczko</b><small>@reczko_konrad · 7.1万人看过</small>
+  <p>typeGPU + ruNNtime + Jev @typesafeai是一个非常有趣的组合：D ruNNtime为我提供了高效的本地推理，Typegu让推理和渲染直接以零副本共享图形…</p>
+</a>
+<span class="done" id="done109" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(114)" id="cell114">
+<a class="poster" href="videos/114.mp4" target="_blank"><img src="thumbs/114.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100646513412292873" target="_blank" rel="noopener">
+  <b>Haoran | 公众号：独立开发</b><small>@hr98w · 2.9万人看过</small>
+  <p>视觉版 Jev 来了 https://t.co/x0kzeE3hdx 仿照着社区的思路，把候选结果映射成固定标签，prefill 完直接采样，限制输出 token，采用多模态的 qwe…</p>
+</a>
+<span class="done" id="done114" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(134)" id="cell134">
+<a class="poster" href="videos/134.mp4" target="_blank"><img src="thumbs/134.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100991186844664014" target="_blank" rel="noopener">
+  <b>Ziwen</b><small>@ziwenxu_ · 1200人看过</small>
+  <p>Jev已经在OpenRouter上了！！ 它才推出一天，TypSafe仍然有等待名单。 OpenRouter有它，这就是我们运行它的方式。 定价太疯狂了。每百万个代币0.042美元，输…</p>
+</a>
+<span class="done" id="done134" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(158)" id="cell158">
+<a class="poster" href="videos/158.mp4" target="_blank"><img src="thumbs/158.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100744709589316009" target="_blank" rel="noopener">
+  <b>OpenRouter</b><small>@OpenRouter · 41.5万人看过</small>
+  <p>Jev by @typesafeai现已在OpenRouter上进行测试。 Jev是System One车型。它不会生成文本，而是获取应用程序的状态加上输入的问题，并返回带有可能性的输…</p>
+</a>
+<span class="done" id="done158" title="点击标记已学">✓</span>
+</div><div class="cell" onclick="mark(159)" id="cell159">
+<a class="poster" href="videos/159.mp4" target="_blank"><img src="thumbs/159.jpg" loading="lazy" alt=""><span class="play">▶</span></a>
+<a class="meta" href="https://x.com/i/web/status/2100651678110515383" target="_blank" rel="noopener">
+  <b>Eric Zhang</b><small>@ekzhang1 · 11.0万人看过</small>
+  <p>受@typesafeai的启发，这是一个可供使用的与Jev兼容的公共API 它运行类似的开放模型（Qwen 3.6 - 35 B-A3 B），并且仅使用SGLang基数缓存来保留预填充…</p>
+</a>
+<span class="done" id="done159" title="点击标记已学">✓</span>
+</div></div></details>
+</div>
+</section>
+<footer>视频与数据来自向明的 JEV 案例库（非官方）· 面板：社区整理 · 2026-09-21 · 202 条案例 · 每节课点开还能看同类全部视频</footer>
+</div>
+<script>
+const KEY='jev-learn-v1';
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}
+let done=load();
+function save(){localStorage.setItem(KEY,JSON.stringify(done));upd()}
+function upd(){
+  let n=Object.keys(done).length;
+  document.getElementById('pbar').style.width=(n/202*100)+'%';
+  document.getElementById('ptext').textContent='进度 '+n+' / 202';
+  Object.keys(done).forEach(id=>{let el=document.getElementById('done'+id);if(el)el.classList.add('on')});
+}
+function mark(id){ if(done[id])delete done[id];else done[id]=1; save(); }
+function toggle(k){let b=document.getElementById('bd-'+k),a=document.getElementById('ar-'+k);if(b.style.display==='none'){b.style.display='';a.classList.remove('closed')}else{b.style.display='none';a.classList.add('closed')}}
+// 默认只展开第一节
+document.querySelectorAll('.l-body').forEach((b,i)=>{if(i>0){b.style.display='none';document.getElementById('ar-'+b.id.slice(3)).classList.add('closed')}});
+upd();
+</script>
+</body></html>
